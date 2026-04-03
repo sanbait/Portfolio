@@ -1,0 +1,158 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* === COLORS === */
+  /* Backgrounds */
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #101010;
+  --bg-card: #141414;
+
+  /* Text */
+  --text-primary: #F5F5F5;
+  --text-secondary: rgba(255, 255, 255, 0.72);
+  --text-tertiary: rgba(255, 255, 255, 0.48);
+  --text-label: rgba(255, 255, 255, 0.56);
+
+  /* Accent */
+  --accent-neon: #CCFF00;
+  --accent-neon-dark: #0A0A0A;
+
+  /* Borders */
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-button: rgba(255, 255, 255, 0.14);
+
+  /* === TYPOGRAPHY === */
+  /* H1 */
+  --h1-font: 'Syne', sans-serif;
+  --h1-weight: 800;
+  --h1-size: clamp(56px, 8vw, 104px);
+  --h1-lh: 0.95;
+  --h1-ls: -0.03em;
+
+  /* H2 */
+  --h2-font: 'Syne', sans-serif;
+  --h2-weight: 800;
+  --h2-size: clamp(32px, 4vw, 56px);
+  --h2-lh: 1;
+  --h2-ls: -0.02em;
+
+  /* H3 */
+  --h3-font: 'Syne', sans-serif;
+  --h3-weight: 700;
+  --h3-size: 24px;
+  --h3-lh: 1.1;
+  --h3-ls: -0.01em;
+
+  /* Body Text */
+  --body-font: 'Space Grotesk', sans-serif;
+  --body-weight: 400;
+  --body-size: 18px;
+  --body-lh: 1.65;
+  --body-ls: 0;
+
+  /* Secondary Text */
+  --secondary-font: 'Space Grotesk', sans-serif;
+  --secondary-weight: 400;
+  --secondary-size: 16px;
+  --secondary-lh: 1.6;
+
+  /* Labels / Tags / Buttons */
+  --label-font: 'Space Grotesk', sans-serif;
+  --label-weight: 500;
+  --label-size: 12px;
+  --label-lh: 1.2;
+  --label-ls: 0.12em;
+
+  /* Marquee */
+  --marquee-font: 'Space Grotesk', sans-serif;
+  --marquee-weight: 500;
+  --marquee-size: 14px;
+  --marquee-lh: 1.2;
+  --marquee-ls: 0.12em;
+
+  /* === SPACING === */
+  --container-max: 1320px;
+  --container-px: 32px;
+  --container-px-mobile: 20px;
+
+  --section-gap: 120px;
+  --section-gap-tablet: 88px;
+  --section-gap-mobile: 64px;
+
+  --heading-gap: 24px;
+  --content-gap: 40px;
+  --card-gap: 24px;
+
+  /* === BORDER RADIUS === */
+  --radius-card-lg: 28px;
+  --radius-card-sm: 20px;
+  --radius-button: 999px;
+
+  /* === BUTTONS === */
+  --btn-padding: 14px 24px;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--body-font);
+    font-size: var(--body-size);
+    font-weight: var(--body-weight);
+    line-height: var(--body-lh);
+    letter-spacing: var(--body-ls);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    font-family: var(--h1-font);
+    font-weight: var(--h1-weight);
+    font-size: var(--h1-size);
+    line-height: var(--h1-lh);
+    letter-spacing: var(--h1-ls);
+    margin: 0;
+  }
+
+  h2 {
+    font-family: var(--h2-font);
+    font-weight: var(--h2-weight);
+    font-size: var(--h2-size);
+    line-height: var(--h2-lh);
+    letter-spacing: var(--h2-ls);
+    margin: 0;
+  }
+
+  h3 {
+    font-family: var(--h3-font);
+    font-weight: var(--h3-weight);
+    font-size: var(--h3-size);
+    line-height: var(--h3-lh);
+    letter-spacing: var(--h3-ls);
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  button {
+    font-family: var(--label-font);
+    font-weight: var(--label-weight);
+    font-size: var(--label-size);
+    line-height: var(--label-lh);
+    letter-spacing: var(--label-ls);
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+}

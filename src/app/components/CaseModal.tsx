@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { X } from "lucide-react";
+import { X, Smartphone, Globe, Send, MessageCircle, Monitor } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 // Preview images for gallery
@@ -15,11 +15,23 @@ interface CaseStudy {
   title: string;
   image: string;
   role?: string;
-  platform?: string;
-  duration: string;
-  team: string;
-  stage?: string;
+  company?: string;
+  platforms?: string;
+  team?: string;
+  deadline?: string;
+  link?: string;
+  // New Passport fields
+  categories?: string[];
+  genre?: string;
   status?: string;
+  monetization?: string;
+  availableOn?: ("apple" | "android" | "web" | "telegram" | "line" | "pc")[];
+  developer?: string;
+  // Legacy fields for backward compatibility
+  platform?: string;
+  duration?: string;
+  projectLink?: string;
+  stage?: string;
   about?: string;
   situation?: string;
   task?: string;
@@ -39,6 +51,8 @@ interface CaseStudy {
   mechanics?: string[];
   facts?: string[];
   subtitle?: string;
+  previewImages?: string[];
+  videoUrl?: string;
 }
 
 type TabType = "overview" | "role" | "work" | "result" | "materials";
@@ -49,10 +63,12 @@ interface CaseModalProps {
 }
 
 export function CaseModal({ c, onClose }: CaseModalProps) {
-  const [selectedPreview, setSelectedPreview] = useState(0);
+  const [selectedPreview, setSelectedPreview] = useState(c.videoUrl ? -1 : 0);
 
-  // Mock preview images - in real app these would come from case data
-  const previewImages = [c.image, PREVIEW_INTERFACE, PREVIEW_ECONOMY, PREVIEW_PROGRESSION];
+  // Use case preview images if available, otherwise fallback to defaults
+  const previewImages = c.previewImages && c.previewImages.length > 0
+    ? c.previewImages
+    : [c.image, PREVIEW_INTERFACE, PREVIEW_ECONOMY, PREVIEW_PROGRESSION];
 
   return (
     <motion.div
@@ -93,19 +109,42 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
           <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6">
             {/* LEFT column: Key Visual + Preview strip */}
             <div className="flex flex-col gap-2">
-              {/* Main visual */}
+              {/* Main visual - video or image */}
               <div className="relative w-full aspect-video overflow-hidden bg-black/50" style={{ border: "1px solid var(--border-default)" }}>
-                <ImageWithFallback src={previewImages[selectedPreview]} alt={c.title} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-14 h-14 rounded-full bg-black/60 flex items-center justify-center">
-                    <div className="w-0 h-0 border-t-[7px] border-t-transparent border-l-[11px] border-l-white border-b-[7px] border-b-transparent ml-1" />
-                  </div>
-                </div>
+                {c.videoUrl && selectedPreview === -1 ? (
+                  <iframe
+                    src={c.videoUrl}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={c.title}
+                  />
+                ) : (
+                  <ImageWithFallback src={previewImages[selectedPreview >= 0 ? selectedPreview : 0]} alt={c.title} className="w-full h-full object-contain" />
+                )}
               </div>
 
               {/* Preview thumbnails strip */}
-              <div className="grid grid-cols-4 gap-2">
-                {previewImages.slice(0, 4).map((img, idx) => (
+              <div className={`grid gap-2 ${previewImages.length === 3 ? 'grid-cols-3' : 'grid-cols-4'}`}>
+                {c.videoUrl && (
+                  <button
+                    key="video"
+                    onClick={() => setSelectedPreview(-1)}
+                    className="relative w-full aspect-video overflow-hidden transition-all duration-300 bg-black/50 flex items-center justify-center"
+                    style={{
+                      border: selectedPreview === -1 ? "1px solid var(--accent-neon)" : "1px solid var(--border-default)",
+                      opacity: selectedPreview === -1 ? 1 : 0.6,
+                    }}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--accent-neon)" }}>
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    {selectedPreview === -1 && (
+                      <div className="absolute inset-0 shadow-[inset_0_0_8px_rgba(204,255,0,0.3)] pointer-events-none" />
+                    )}
+                  </button>
+                )}
+                {previewImages.slice(0, c.videoUrl ? 3 : 4).map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => setSelectedPreview(idx)}
@@ -115,7 +154,7 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
                       opacity: selectedPreview === idx ? 1 : 0.6,
                     }}
                   >
-                    <ImageWithFallback src={img} alt={`Preview ${idx + 1}`} className="w-full h-full object-cover" />
+                    <ImageWithFallback src={img} alt={`Preview ${idx + 1}`} className="w-full h-full object-contain" />
                     {selectedPreview === idx && (
                       <div className="absolute inset-0 shadow-[inset_0_0_8px_rgba(204,255,0,0.3)] pointer-events-none" />
                     )}
@@ -133,62 +172,70 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
                 </h2>
               </div>
 
-              {/* Bottom Box: Detail Game */}
+              {/* Bottom Box: Passport */}
               <div className="p-6 flex-1 flex flex-col">
                 <h3 className="text-[10px] md:text-xs uppercase tracking-[0.2em] mb-4" style={{ color: "var(--text-secondary)", fontFamily: "var(--body-font, 'Space Grotesk', monospace)" }}>
-                  Detail Game
+                  ПАСПОРТ ПРОЕКТА
                 </h3>
                 
                 <div className="w-full mb-6" style={{ borderBottom: "1px dashed var(--border-default)" }}></div>
 
                 <div className="flex flex-col gap-5 flex-1" style={{ fontFamily: "var(--body-font, 'Space Grotesk', monospace)", fontSize: "13px" }}>
-                  {/* Category */}
-                  <div className="flex justify-between items-start gap-4">
-                    <span style={{ color: "var(--text-secondary)" }}>Category</span>
-                    <span className="px-2 py-0.5 text-xs bg-white/5" style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>{c.role || "Product & Audit"}</span>
-                  </div>
-
                   {/* Genre */}
-                  <div className="flex justify-between items-center gap-4">
-                    <span style={{ color: "var(--text-secondary)" }}>Genre</span>
-                    <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.platform || "Strategy"}</span>
-                  </div>
-
-                  {/* Status */}
-                  <div className="flex justify-between items-center gap-4">
-                    <span style={{ color: "var(--text-secondary)" }}>Status</span>
-                    <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.status || c.stage || "Live"}</span>
-                  </div>
-                  
-                  {/* Available on */}
-                  <div className="flex justify-between items-center gap-4">
-                    <span style={{ color: "var(--text-secondary)" }}>Available on</span>
-                    <div className="flex gap-2 text-white">
-                       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                  {c.genre && (
+                    <div className="flex justify-between items-center gap-4">
+                      <span style={{ color: "var(--text-secondary)" }}>Жанр</span>
+                      <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.genre}</span>
                     </div>
-                  </div>
+                  )}
 
-                  {/* Developer */}
-                  <div className="flex justify-between items-center gap-4">
-                    <span style={{ color: "var(--text-secondary)" }}>Developer</span>
-                    <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.team || "Internal Team"}</span>
-                  </div>
-                </div>
+                  {/* Platform */}
+                  {c.availableOn && (
+                    <div className="flex justify-between items-center gap-4">
+                      <span style={{ color: "var(--text-secondary)" }}>Платформа</span>
+                      <div className="flex items-center gap-4 text-white">
+                        {/* Show one phone icon if either apple or android is present */}
+                        {(c.availableOn.includes("apple") || c.availableOn.includes("android")) && (
+                          <div className="flex items-center justify-center">
+                            <Smartphone size={18} />
+                          </div>
+                        )}
+                        {/* Show other platforms */}
+                        {c.availableOn.filter(p => p !== "apple" && p !== "android").map((platform) => (
+                          <div key={platform} className="flex items-center justify-center">
+                            {platform === "telegram" && <Send size={18} className="translate-y-[1px]" />}
+                            {platform === "line" && <MessageCircle size={18} className="text-[#06C755]" />}
+                            {platform === "pc" && <Monitor size={18} />}
+                            {platform === "web" && <Globe size={18} />}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
-                {/* Social Icons */}
-                <div className="mt-8 pt-4 flex justify-end gap-6">
-                  {[
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>, 
-                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>, 
-                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>, 
-                    <path d="M18 6L6 18M6 6l12 12"></path>
-                  ].map((path, i) => (
-                    <button key={i} className="transition-colors hover:text-[#CCFF00]" style={{ color: "var(--text-secondary)" }}>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square">
-                        {path}
-                      </svg>
-                    </button>
-                  ))}
+                  {/* Monetization */}
+                  {c.monetization && (
+                    <div className="flex justify-between items-center gap-4">
+                      <span style={{ color: "var(--text-secondary)" }}>Монетизация</span>
+                      <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.monetization}</span>
+                    </div>
+                  )}
+
+                  {/* Company */}
+                  {c.company && (
+                    <div className="flex justify-between items-center gap-4">
+                      <span style={{ color: "var(--text-secondary)" }}>Компания</span>
+                      <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.company}</span>
+                    </div>
+                  )}
+
+                  {/* Role */}
+                  {c.role && (
+                    <div className="flex justify-between items-center gap-4">
+                      <span style={{ color: "var(--text-secondary)" }}>Роль</span>
+                      <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.role}</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -363,29 +410,80 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
               >
                 → Результат
               </h3>
-              <ul className="space-y-4">
-                {(c.outcome || c.facts || [c.result || ""]).map((item, i) => (
-                  <li
+              
+              {/* Optional result description (the first item if it's long text) */}
+              {c.outcome && c.outcome.length > 0 && c.outcome[0].length > 100 && (
+                <p
+                  className="mb-6"
+                  style={{
+                    fontFamily: "var(--body-font)",
+                    fontSize: "var(--body-size)",
+                    lineHeight: "var(--body-lh)",
+                    color: "var(--text-secondary)",
+                  }}
+                >
+                  {c.outcome[0]}
+                </p>
+              )}
+
+              {/* Metrics grid - only for items that look like metrics (short text or contains -) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                {(c.outcome || []).filter((item, idx) => {
+                  // Skip the first item if it was used as a description
+                  if (idx === 0 && item.length > 100) return false;
+                  // Skip the last item (it's usually the conclusion)
+                  if (idx === (c.outcome?.length || 0) - 1) return false;
+                  return true;
+                }).map((item, i) => (
+                  <div
                     key={i}
-                    className="p-4"
+                    className="p-5 text-center flex items-center justify-center min-h-[80px]"
                     style={{
-                      backgroundColor: "rgba(204, 255, 0, 0.03)",
-                      border: "1px solid rgba(204, 255, 0, 0.1)",
+                      backgroundColor: "rgba(204, 255, 0, 0.05)",
+                      border: "1px solid rgba(204, 255, 0, 0.2)",
                     }}
                   >
                     <p
                       style={{
                         fontFamily: "var(--body-font)",
-                        fontSize: "var(--body-size)",
-                        lineHeight: "var(--body-lh)",
-                        color: "var(--text-secondary)",
+                        fontSize: "var(--secondary-size)",
+                        lineHeight: "var(--secondary-lh)",
+                        color: "var(--text-primary)",
                       }}
                     >
                       {item}
                     </p>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
+
+              {/* Final conclusion section */}
+              {c.outcome && c.outcome.length > 0 && (
+                <div className="mt-8 mb-4">
+                  <h4
+                    className="mb-4"
+                    style={{
+                      fontFamily: "var(--title-font, 'Syne', sans-serif)",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      letterSpacing: "0.05em",
+                      color: "var(--accent-neon)",
+                    }}
+                  >
+                    Что я вынес из этого кейса:
+                  </h4>
+                  <p
+                    style={{
+                      fontFamily: "var(--body-font)",
+                      fontSize: "var(--body-size)",
+                      lineHeight: "var(--body-lh)",
+                      color: "var(--text-secondary)",
+                    }}
+                  >
+                    {c.outcome[c.outcome.length - 1]}
+                  </p>
+                </div>
+              )}
             </div>
           )}
 
@@ -426,34 +524,6 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
             </div>
           )}
 
-          {/* Materials */}
-          <div>
-            <h3
-              className="mb-6 uppercase"
-              style={{
-                fontFamily: "var(--label-font)",
-                fontWeight: "var(--label-weight)",
-                fontSize: "var(--label-size)",
-                letterSpacing: "var(--label-ls)",
-                color: "var(--accent-neon)",
-              }}
-            >
-              → Материалы
-            </h3>
-            <div className="grid grid-cols-2 gap-4">
-              {[PREVIEW_INTERFACE, PREVIEW_SPACE, PREVIEW_ECONOMY, PREVIEW_PROGRESSION].map((img, idx) => (
-                <div
-                  key={idx}
-                  className="relative h-64 overflow-hidden"
-                  style={{
-                    border: "1px solid var(--border-default)",
-                  }}
-                >
-                  <ImageWithFallback src={img} alt={`Material ${idx + 1}`} className="w-full h-full object-cover" />
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </motion.div>
     </motion.div>

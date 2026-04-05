@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import portrait from "figma:asset/5de01c2e09ff2c625872795e6866e992c2c8da71.png";
+import portrait from "../../assets/AVA.png";
 
 function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);

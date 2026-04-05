@@ -65,7 +65,7 @@ export function Hero() {
               style={{
                 fontFamily: "var(--label-font)",
                 fontWeight: "var(--label-weight)",
-                fontSize: "14px",
+                fontSize: "21px",
                 lineHeight: "var(--label-lh)",
                 letterSpacing: "0.14em",
                 color: "var(--accent-neon)",

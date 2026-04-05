@@ -21,47 +21,90 @@ const otherCases = [
   {
     title: "MetaLife",
     role: "Lead System Designer",
+    genre: "Social MMO / Extraction",
+    description: "Социальная мобильная игра с упором на создание контента и взаимодействие между игроками",
+    tags: ["Economy", "Social", "Web3", "MMO", "Tokenomics"],
     platform: "Mobile F2P",
     image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop",
-    description: "Социальная мобильная игра с упором на создание контента и взаимодействие между игроками",
     task: "Спроектировать экономику, социальные механики и систему прогрессии для долгосрочного удержания",
     result: "Retention D7: 32%, монетизация выше планового на 18%",
   },
   {
     title: "Alpha Bot",
     role: "Product Designer",
+    genre: "Fintech Gamification",
+    description: "Telegram-бот с элементами геймификации для финтех-платформы",
+    tags: ["TMA", "Virality", "Retention", "Fintech", "UX"],
     platform: "Telegram Mini App",
     image: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400&h=300&fit=crop",
     task: "Создать геймифицированный опыт для fintech-продукта с focus на retention и virality",
-    description: "Telegram-бот с элементами геймификации для финтех-платформы",
     result: "CAC снижен на 40%, органический трафик +65%",
   },
   {
     title: "Gratio",
     role: "Product Consultant",
+    genre: "Edutainment / SaaS",
+    description: "Корпоративная платформа для управления обучением и развитием сотрудников",
+    tags: ["Engagement", "Audit", "Corporate", "HR Tech", "LMS"],
     platform: "Enterprise SaaS",
     image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop",
-    description: "Корпоративная платформа для управления обучением и развитием сотрудников",
     task: "Провести аудит продукта и внедрить игровые механики для повышения engagement",
     result: "Активность пользователей +52%, NPS вырос с 6.2 до 8.1",
   },
   {
     title: "Lootbox Reform",
     role: "Economy Designer",
+    genre: "Live Ops / Monetization",
+    description: "Редизайн монетизации для существующей игры с переходом на ethical F2P модель",
+    tags: ["Ethical F2P", "Rework", "Compliance", "Revenue", "Lootbox"],
     platform: "PC / Mobile",
     image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop",
-    description: "Редизайн монетизации для существующей игры с переходом на ethical F2P модель",
     task: "Перестроить экономику и lootbox-систему под новые требования регуляторов",
     result: "Revenue удержан на уровне 95%, негативные отзывы снизились на 60%",
   },
   {
     title: "NFT Marketplace",
     role: "Game Design Consultant",
+    genre: "Web3 Ecosystem",
+    description: "Web3 маркетплейс с игровыми механиками для трейдинга NFT",
+    tags: ["Trading", "Gamification", "LTV", "Web3", "Marketplace"],
     platform: "Web3",
     image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
-    description: "Web3 маркетплейс с игровыми механиками для трейдинга NFT",
     task: "Спроектировать игровой слой поверх базового функционала маркетплейса",
     result: "Средний LTV пользователя +120%, retention D30: 28%",
+  },
+  {
+    title: "Cyber Arena",
+    role: "Lead Designer",
+    genre: "Battler / PvP",
+    description: "Киберспортивная арена с упором на соревновательный баланс и турниры",
+    tags: ["Combat", "Balancing", "eSports", "PvP", "Matchmaking"],
+    platform: "PC",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop",
+    task: "Сбалансировать PvP-систему и спроектировать турнирную сетку",
+    result: "MAU +45%, среднее время сессии выросло на 20%",
+  },
+  {
+    title: "EduQuest",
+    role: "Game Architect",
+    genre: "Mobile Education",
+    description: "Образовательная платформа с RPG-механиками для повышения вовлеченности",
+    tags: ["Learning", "Quests", "RPG", "Kids", "Mobile"],
+    platform: "Mobile",
+    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop",
+    task: "Создать RPG-надстройку над образовательным контентом для детей",
+    result: "Completion rate курсов вырос на 75%",
+  },
+  {
+    title: "Crypto Farm",
+    role: "Economy Lead",
+    genre: "Idle / Web3",
+    description: "Децентрализованная ферма с элементами добычи и стейкинга активов",
+    tags: ["Tokenomics", "Staking", "Mining", "Idle", "Blockchain"],
+    platform: "Web3 / TMA",
+    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
+    task: "Разработать устойчивую токеномику для децентрализованной фермы",
+    result: "ТВЛ вырос в 3 раза за первый месяц без гиперинфляции",
   },
 ];
 
@@ -69,7 +112,7 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
   return (
     <FadeInSection delay={delay}>
       <div
-        className="relative h-[320px] cursor-pointer perspective-1000"
+        className="relative h-[420px] cursor-pointer perspective-1000"
         onClick={onFlip}
       >
         <motion.div
@@ -80,15 +123,17 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
         >
           {/* Front side */}
           <div
-            className="absolute inset-0 backface-hidden overflow-hidden transition-all hover:border-[var(--accent-neon)] hover:shadow-[0_0_20px_rgba(204,255,0,0.3)]"
+            className="absolute inset-0 backface-hidden overflow-hidden transition-all"
             style={{
               backfaceVisibility: "hidden",
               border: "1px solid var(--border-default)",
               backgroundColor: "var(--bg-card)",
             }}
+            onMouseEnter={(e) => e.currentTarget.style.borderColor = "var(--accent-neon)"}
+            onMouseLeave={(e) => e.currentTarget.style.borderColor = "var(--border-default)"}
           >
             {/* Image */}
-            <div className="relative h-40 overflow-hidden">
+            <div className="relative h-36 overflow-hidden">
               <ImageWithFallback
                 src={project.image}
                 alt={project.title}
@@ -110,45 +155,67 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
               </span>
             </div>
 
-            {/* Content */}
-            <div className="p-5">
-              <h3 className="mb-2" style={{ color: "var(--text-primary)" }}>
+            {/* Content - fixed layout */}
+            <div className="p-5 flex flex-col" style={{ height: "calc(100% - 144px)" }}>
+              {/* Title - fixed height */}
+              <h3 className="mb-2 h-[28px] flex items-center" style={{ color: "var(--text-primary)" }}>
                 {project.title}
               </h3>
+              
+              {/* Description - fixed height with clamp */}
               <p
-                className="mb-3 uppercase"
-                style={{
-                  fontFamily: "var(--label-font)",
-                  fontWeight: "var(--label-weight)",
-                  fontSize: "var(--label-size)",
-                  letterSpacing: "var(--label-ls)",
-                  color: "rgba(204, 255, 0, 0.8)",
-                }}
-              >
-                {project.role}
-              </p>
-              <p
-                className="line-clamp-3"
+                className="line-clamp-2 mb-3 h-[36px]"
                 style={{
                   fontFamily: "var(--body-font)",
-                  fontSize: "var(--secondary-size)",
-                  lineHeight: "var(--secondary-lh)",
+                  fontSize: "12px",
+                  lineHeight: "1.4",
                   color: "var(--text-tertiary)",
                 }}
               >
                 {project.description}
               </p>
-              <p
-                className="mt-4 uppercase"
-                style={{
-                  fontFamily: "var(--label-font)",
-                  fontSize: "var(--label-size)",
-                  letterSpacing: "var(--label-ls)",
-                  color: "rgba(204, 255, 0, 0.6)",
-                }}
-              >
-                Нажмите для подробностей →
-              </p>
+
+              {/* Tags - fixed height */}
+              <div className="flex flex-wrap gap-1.5 mb-3 h-[22px] overflow-hidden">
+                {project.tags.slice(0, 4).map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2 py-0.5 text-[9px] uppercase tracking-widest bg-white/5"
+                    style={{
+                      border: "1px solid rgba(204, 255, 0, 0.3)",
+                      color: "var(--accent-neon)",
+                      borderRadius: "2px"
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              
+              {/* Role/Genre - fixed height */}
+              <div className="space-y-1.5 mb-3 text-[11px] uppercase tracking-wider font-mono h-[42px]">
+                <div className="flex justify-between">
+                  <span style={{ color: "var(--text-secondary)" }}>Роль:</span>
+                  <span style={{ color: "var(--text-primary)" }} className="text-right truncate ml-2">{project.role}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span style={{ color: "var(--text-secondary)" }}>Жанр:</span>
+                  <span style={{ color: "var(--text-primary)" }} className="text-right truncate ml-2">{project.genre}</span>
+                </div>
+              </div>
+
+              {/* Arrow - always at bottom */}
+              <div className="flex justify-end mt-auto">
+                <span
+                  style={{
+                    fontSize: "24px",
+                    color: "var(--accent-neon)",
+                    fontWeight: "900"
+                  }}
+                >
+                  →
+                </span>
+              </div>
             </div>
           </div>
 
@@ -162,106 +229,71 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
               backgroundColor: "var(--bg-card)",
             }}
           >
-            {/* Top: Title and badge */}
-            <div>
-              <div className="flex items-start justify-between mb-6">
-                <h3 className="flex-1" style={{ color: "var(--text-primary)" }}>
-                  {project.title}
-                </h3>
-                <span
-                  className="ml-3 px-2.5 py-1 uppercase whitespace-nowrap"
+            {/* Top: Task and Result */}
+            <div className="space-y-6">
+              <div>
+                <p
+                  className="mb-2 uppercase"
                   style={{
-                    backgroundColor: "var(--accent-neon)",
-                    color: "var(--accent-neon-dark)",
                     fontFamily: "var(--label-font)",
                     fontWeight: "var(--label-weight)",
                     fontSize: "var(--label-size)",
                     letterSpacing: "var(--label-ls)",
+                    color: "var(--accent-neon)",
                   }}
                 >
-                  {project.platform}
-                </span>
+                  → ЗАДАЧА
+                </p>
+                <p
+                  style={{
+                    fontFamily: "var(--body-font)",
+                    fontSize: "var(--secondary-size)",
+                    lineHeight: "var(--secondary-lh)",
+                    color: "var(--text-secondary)",
+                  }}
+                >
+                  {project.task}
+                </p>
               </div>
 
-              <p
-                className="mb-6 uppercase"
-                style={{
-                  fontFamily: "var(--label-font)",
-                  fontWeight: "var(--label-weight)",
-                  fontSize: "var(--label-size)",
-                  letterSpacing: "var(--label-ls)",
-                  color: "rgba(204, 255, 0, 0.8)",
-                }}
-              >
-                {project.role}
-              </p>
-
-              {/* Task and Result */}
-              <div className="space-y-4">
-                <div>
-                  <p
-                    className="mb-1 uppercase"
-                    style={{
-                      fontFamily: "var(--label-font)",
-                      fontWeight: "var(--label-weight)",
-                      fontSize: "var(--label-size)",
-                      letterSpacing: "var(--label-ls)",
-                      color: "var(--accent-neon)",
-                    }}
-                  >
-                    → ЗАДАЧА
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "var(--body-font)",
-                      fontSize: "var(--secondary-size)",
-                      lineHeight: "var(--secondary-lh)",
-                      color: "var(--text-secondary)",
-                    }}
-                  >
-                    {project.task}
-                  </p>
-                </div>
-
-                <div>
-                  <p
-                    className="mb-1 uppercase"
-                    style={{
-                      fontFamily: "var(--label-font)",
-                      fontWeight: "var(--label-weight)",
-                      fontSize: "var(--label-size)",
-                      letterSpacing: "var(--label-ls)",
-                      color: "var(--accent-neon)",
-                    }}
-                  >
-                    → РЕЗУЛЬТАТ
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "var(--body-font)",
-                      fontSize: "var(--secondary-size)",
-                      lineHeight: "var(--secondary-lh)",
-                      color: "var(--text-secondary)",
-                    }}
-                  >
-                    {project.result}
-                  </p>
-                </div>
+              <div>
+                <p
+                  className="mb-2 uppercase"
+                  style={{
+                    fontFamily: "var(--label-font)",
+                    fontWeight: "var(--label-weight)",
+                    fontSize: "var(--label-size)",
+                    letterSpacing: "var(--label-ls)",
+                    color: "var(--accent-neon)",
+                  }}
+                >
+                  → РЕЗУЛЬТАТ
+                </p>
+                <p
+                  style={{
+                    fontFamily: "var(--body-font)",
+                    fontSize: "var(--secondary-size)",
+                    lineHeight: "var(--secondary-lh)",
+                    color: "var(--text-secondary)",
+                  }}
+                >
+                  {project.result}
+                </p>
               </div>
             </div>
 
             {/* Bottom: Back link */}
-            <p
-              className="uppercase"
-              style={{
-                fontFamily: "var(--label-font)",
-                fontSize: "var(--label-size)",
-                letterSpacing: "var(--label-ls)",
-                color: "rgba(204, 255, 0, 0.6)",
-              }}
-            >
-              Нажмите чтобы вернуться ←
-            </p>
+            <div className="flex justify-start">
+              <span 
+                style={{ 
+                  fontSize: "24px", 
+                  color: "var(--accent-neon)",
+                  fontWeight: "900" 
+                }}
+              >
+                ←
+              </span>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -281,7 +313,7 @@ export function OtherCases() {
           </h2>
         </FadeInSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style={{ gap: "var(--card-gap)" }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ gap: "var(--card-gap)" }}>
           {otherCases.map((project, i) => (
             <FlipCard
               key={i}

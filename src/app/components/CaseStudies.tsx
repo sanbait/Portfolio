@@ -328,7 +328,7 @@ export function CaseStudies() {
       <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
         {/* Section header */}
         <FadeInSection>
-          <h2 className="screen-title" style={{ color: "var(--text-primary)", marginBottom: "var(--content-gap)" }}>
+          <h2 style={{ color: "var(--text-primary)", marginBottom: "var(--content-gap)" }}>
             КЕЙСЫ
           </h2>
         </FadeInSection>
@@ -341,7 +341,7 @@ export function CaseStudies() {
                 onClick={() => setSelected(c)}
                 whileHover={{ borderColor: "var(--accent-neon)" }}
                 transition={{ duration: 0.2 }}
-                className="foil-card foil-card--strong w-full text-left group relative overflow-hidden flex flex-col h-full"
+                className="w-full text-left group relative overflow-hidden flex flex-col h-full"
                 style={{
                   backgroundColor: "var(--bg-card)",
                   border: "2px solid var(--border-default)",
@@ -363,7 +363,7 @@ export function CaseStudies() {
 
                   {/* Neon tag - top right */}
                   <span
-                    className="foil-content absolute top-4 right-4 px-3 py-1.5 uppercase"
+                    className="absolute top-4 right-4 px-3 py-1.5 uppercase"
                     style={{
                       backgroundColor: "var(--accent-neon)",
                       color: "var(--accent-neon-dark)",
@@ -378,7 +378,7 @@ export function CaseStudies() {
                 </div>
 
                 {/* Content */}
-                <div className="foil-content foil-panel p-6 flex flex-col flex-1">
+                <div className="p-6 flex flex-col flex-1">
                   <h3
                     className="mb-3 transition-colors group-hover:text-[#CCFF00] min-h-[3rem] line-clamp-2"
                     style={{
@@ -388,15 +388,17 @@ export function CaseStudies() {
                     {c.title}
                   </h3>
 
-                  <p
-                    className="mb-4 flex-1 line-clamp-2 text-sm"
-                    style={{
-                      fontFamily: "var(--body-font)",
-                      color: "var(--text-secondary)",
-                    }}
-                  >
-                    {c.subtitle}
-                  </p>
+                  <div className="mb-4 p-3 flex-1" style={{ backgroundColor: "rgba(204, 255, 0, 0.05)", border: "1px solid rgba(204, 255, 0, 0.1)" }}>
+                    <p
+                      className="line-clamp-2 text-sm"
+                      style={{
+                        fontFamily: "var(--body-font)",
+                        color: "var(--text-primary)",
+                      }}
+                    >
+                      {c.subtitle}
+                    </p>
+                  </div>
                 </div>
               </motion.button>
             </FadeInSection>

@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 
-const CV_URL = "https://drive.google.com/file/d/1CefF2K42lhG9cDMnvd3N90YZkjchYGqL/view?usp=drive_link";
-
 const links = [
   { label: "Обо мне", href: "#about" },
   { label: "Кейсы", href: "#cases" },
+  { label: "Опыт", href: "#experience" },
   { label: "Контакты", href: "#contact" },
 ];
 
@@ -53,7 +52,7 @@ export function Navbar() {
             style={{
               fontFamily: "var(--h3-font)",
               fontWeight: "var(--h3-weight)",
-              fontSize: "16px",
+              fontSize: "14px",
               letterSpacing: "0.12em",
               color: "var(--accent-neon)",
             }}
@@ -71,52 +70,24 @@ export function Navbar() {
               className="uppercase transition-all text-[#9ca3af] hover:text-[#CCFF00]"
               style={{
                 fontFamily: "var(--label-font)",
-                fontWeight: "600",
-                fontSize: "14px",
+                fontWeight: "var(--label-weight)",
+                fontSize: "var(--label-size)",
                 letterSpacing: "var(--label-ls)",
               }}
             >
               {link.label}
             </button>
           ))}
-          <a
-            href={CV_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="cv-button uppercase"
-            style={{
-              padding: "12px 20px",
-              fontSize: "14px",
-              fontWeight: "700",
-            }}
-          >
-            CV
-          </a>
         </div>
 
         {/* Mobile burger */}
-        <div className="md:hidden flex items-center gap-3">
-          <a
-            href={CV_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="cv-button uppercase"
-            style={{
-              padding: "10px 14px",
-              fontSize: "14px",
-              fontWeight: "700",
-            }}
-          >
-            CV
-          </a>
-          <button
-            className="transition-colors"
-            onClick={() => setOpen(!open)}
-            style={{ color: open ? "var(--accent-neon)" : "var(--text-secondary)" }}
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
+        <button
+          className="md:hidden transition-colors"
+          onClick={() => setOpen(!open)}
+          style={{ color: open ? "var(--accent-neon)" : "var(--text-secondary)" }}
+        >
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
 
       {/* Mobile menu */}
@@ -150,19 +121,6 @@ export function Navbar() {
                   {link.label}
                 </button>
               ))}
-              <a
-                href={CV_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="cv-button uppercase"
-                style={{
-                  padding: "14px 18px",
-                  width: "fit-content",
-                  fontWeight: "700",
-                }}
-              >
-                CV
-              </a>
             </div>
           </motion.div>
         )}

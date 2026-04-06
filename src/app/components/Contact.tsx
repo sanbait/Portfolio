@@ -2,10 +2,6 @@ import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { Send } from "lucide-react";
 
-const CV_URL = "https://drive.google.com/file/d/1CefF2K42lhG9cDMnvd3N90YZkjchYGqL/view?usp=drive_link";
-const TG_URL = "https://t.me/Alexsunpro";
-const EMAIL = "Sanbaititl@gmail.com";
-
 function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -33,7 +29,7 @@ export function Contact() {
 
       <div className="relative z-10" style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
         <FadeInSection>
-          <h2 className="screen-title" style={{ color: "var(--text-primary)", marginBottom: "var(--heading-gap)" }}>
+          <h2 style={{ color: "var(--text-primary)", marginBottom: "var(--heading-gap)" }}>
             READY TO LEVEL UP?
           </h2>
         </FadeInSection>
@@ -57,9 +53,7 @@ export function Contact() {
         <FadeInSection delay={0.2}>
           <div className="flex flex-wrap gap-6">
             <motion.a
-              href={TG_URL}
-              target="_blank"
-              rel="noreferrer"
+              href="https://t.me/alexander_baturin"
               whileHover={{ backgroundColor: "var(--accent-neon)", color: "#000000" }}
               whileTap={{ scale: 0.98 }}
               className="flex items-center gap-2 cursor-pointer font-bold uppercase tracking-widest"
@@ -79,7 +73,7 @@ export function Contact() {
               Написать мне
             </motion.a>
             <motion.a
-              href={`mailto:${EMAIL}`}
+              href="mailto:a.baturin@gamedesign.ru"
               whileHover={{ backgroundColor: "var(--accent-neon)", color: "#000000" }}
               whileTap={{ scale: 0.98 }}
               className="flex items-center gap-2 cursor-pointer font-bold uppercase tracking-widest"
@@ -96,23 +90,6 @@ export function Contact() {
               transition={{ duration: 0 }}
             >
               Email
-            </motion.a>
-            <motion.a
-              href={CV_URL}
-              target="_blank"
-              rel="noreferrer"
-              whileHover={{ backgroundColor: "transparent", color: "var(--accent-neon)" }}
-              whileTap={{ scale: 0.98 }}
-              className="cv-button flex items-center gap-2 cursor-pointer font-bold uppercase tracking-widest"
-              style={{
-                padding: "25px 65px",
-                borderRadius: "0",
-                fontSize: "18px",
-                transition: "none"
-              }}
-              transition={{ duration: 0 }}
-            >
-              CV
             </motion.a>
           </div>
         </FadeInSection>
@@ -134,7 +111,7 @@ export function Contact() {
                 Telegram
               </p>
               <p style={{ fontFamily: "var(--body-font)", color: "var(--text-secondary)" }}>
-                @Alexsunpro
+                @alexander_baturin
               </p>
             </div>
             <div>
@@ -151,7 +128,7 @@ export function Contact() {
                 Email
               </p>
               <p style={{ fontFamily: "var(--body-font)", color: "var(--text-secondary)" }}>
-                {EMAIL}
+                a.baturin@gamedesign.ru
               </p>
             </div>
           </div>

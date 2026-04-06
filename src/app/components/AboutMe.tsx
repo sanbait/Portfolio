@@ -58,7 +58,7 @@ export function AboutMe() {
           {/* Right: About content */}
           <div className="flex-1">
             <FadeInSection delay={0.1}>
-              <h2 className="screen-title" style={{ color: "var(--text-primary)", marginBottom: "var(--heading-gap)" }}>
+              <h2 style={{ color: "var(--text-primary)", marginBottom: "var(--heading-gap)" }}>
                 ОБО МНЕ
               </h2>
             </FadeInSection>

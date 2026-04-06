@@ -82,7 +82,7 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <h1
-              className="mb-10 whitespace-nowrap"
+              className="mb-10 px-2"
               style={{
                 color: "var(--text-primary)",
                 fontFamily: "var(--h1-font)",
@@ -92,7 +92,8 @@ export function Hero() {
                 letterSpacing: "var(--h1-ls)",
               }}
             >
-              АЛЕКСАНДР БАТУРИН
+              <span className="block sm:inline">АЛЕКСАНДР</span>{" "}
+              <span className="block sm:inline">БАТУРИН</span>
             </h1>
           </motion.div>
 

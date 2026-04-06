@@ -16,64 +16,197 @@ function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; del
   );
 }
 
-const cards = [
-  {
-    title: "Игровая экономика",
-    description:
-      "Специализируюсь на создании устойчивых экономических моделей. Математически верифицирую баланс, источники и стоки ресурсов до начала разработки. Это позволяет прогнозировать инфляцию и купировать риски стагнации рынка на дистанции 12+ месяцев.",
-  },
-  {
-    title: "Системный дизайн и социальные механики",
-    description:
-      "Проектирую игровые циклы, объединяющие прогрессию, экономику и социальное взаимодействие. Создаю системы, где дефицит, конкуренция и кооперация превращаются в инструменты удержания и формируют долгосрочную мотивацию игроков.",
-  },
-  {
-    title: "Данные, продукт, реализация",
-    description:
-      "Принимаю решения на основе поведенческой аналитики и продуктовых метрик. Благодаря опыту прототипирования на Unreal Engine 5 (Blueprints), проверяю системные гипотезы в реальном геймплее и говорю на одном языке с командой разработки.",
-  },
-] as const;
+const competencies = {
+  core: [
+    "Игровой цикл",
+    "Экономика и баланс",
+    "Прогрессия",
+    "F2P-монетизация",
+    "Удержание (Retention)",
+    "Социальные механики",
+    "Live Ops",
+    "Системный дизайн",
+  ],
+  product: [
+    "Продуктовый подход",
+    "Метрики и аналитика",
+    "A/B тестирование",
+    "Аудит систем",
+    "Скоуп-менеджмент",
+    "Приоритизация фич",
+    "Roadmap",
+    "MVP-разработка",
+  ],
+  platforms: [
+    "Telegram Mini Apps",
+    "Mobile (iOS/Android)",
+    "PC (Steam)",
+    "Cross-platform",
+    "Web3 / Blockchain",
+    "Enterprise gamification",
+  ],
+  tools: [
+    "Figma",
+    "Miro",
+    "Notion",
+    "JIRA / Linear",
+    "Amplitude",
+    "Google Analytics",
+    "Excel / Sheets",
+    "Tableau",
+  ],
+};
 
 export function TechStack() {
   return (
-    <section id="expertise" className="py-24 px-6" style={{ backgroundColor: "var(--bg-secondary)" }}>
+    <section className="py-24 px-6" style={{ backgroundColor: "var(--bg-secondary)" }}>
       <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
         <FadeInSection>
-          <h2 style={{ color: "var(--text-primary)" }}>
-            ПРОЕКТИРОВАНИЕ ИГРОВЫХ СИСТЕМ
+          <h2 style={{ color: "var(--text-primary)", marginBottom: "var(--content-gap)" }}>
+            КОМПЕТЕНЦИИ
           </h2>
-          <p style={{ color: "var(--text-secondary)", marginTop: "0.75rem", marginBottom: "var(--content-gap)" }}>
-            Из чего состоит моя работа и какие задачи я решаю на уровне систем, экономики и поведения игроков.
-          </p>
         </FadeInSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {cards.map((card, i) => (
-            <FadeInSection key={card.title} delay={0.1 + i * 0.1}>
-              <div
-                className="h-full p-6"
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <FadeInSection delay={0.1}>
+            <div>
+              <h3
+                className="mb-6 uppercase"
                 style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.03)",
-                  border: "1px solid var(--border-default)",
-                  borderRadius: "var(--radius-card)",
+                  fontFamily: "var(--label-font)",
+                  fontWeight: "var(--label-weight)",
+                  fontSize: "var(--label-size)",
+                  letterSpacing: "var(--label-ls)",
+                  color: "var(--accent-neon)",
                 }}
               >
-                <h3
-                  className="mb-4"
-                  style={{
-                    fontFamily: "var(--label-font)",
-                    fontWeight: "var(--label-weight)",
-                    fontSize: "var(--label-size)",
-                    letterSpacing: "var(--label-ls)",
-                    color: "var(--accent-neon)",
-                  }}
-                >
-                  {card.title}
-                </h3>
-                <p style={{ color: "var(--text-primary)" }}>{card.description}</p>
+                → CORE
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {competencies.core.map((item) => (
+                  <span
+                    key={item}
+                    className="px-3 py-1.5 transition-all"
+                    style={{
+                      backgroundColor: "rgba(255, 255, 255, 0.03)",
+                      border: "1px solid var(--border-default)",
+                      borderRadius: "var(--radius-card-sm)",
+                      fontFamily: "var(--label-font)",
+                      fontSize: "var(--label-size)",
+                      color: "var(--text-secondary)",
+                    }}
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
-            </FadeInSection>
-          ))}
+            </div>
+          </FadeInSection>
+
+          <FadeInSection delay={0.2}>
+            <div>
+              <h3
+                className="mb-6 uppercase"
+                style={{
+                  fontFamily: "var(--label-font)",
+                  fontWeight: "var(--label-weight)",
+                  fontSize: "var(--label-size)",
+                  letterSpacing: "var(--label-ls)",
+                  color: "var(--accent-neon)",
+                }}
+              >
+                → ПРОДУКТ
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {competencies.product.map((item) => (
+                  <span
+                    key={item}
+                    className="px-3 py-1.5 transition-all"
+                    style={{
+                      backgroundColor: "rgba(255, 255, 255, 0.03)",
+                      border: "1px solid var(--border-default)",
+                      borderRadius: "var(--radius-card-sm)",
+                      fontFamily: "var(--label-font)",
+                      fontSize: "var(--label-size)",
+                      color: "var(--text-secondary)",
+                    }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </FadeInSection>
+
+          <FadeInSection delay={0.3}>
+            <div>
+              <h3
+                className="mb-6 uppercase"
+                style={{
+                  fontFamily: "var(--label-font)",
+                  fontWeight: "var(--label-weight)",
+                  fontSize: "var(--label-size)",
+                  letterSpacing: "var(--label-ls)",
+                  color: "var(--accent-neon)",
+                }}
+              >
+                → ПЛАТФОРМЫ
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {competencies.platforms.map((item) => (
+                  <span
+                    key={item}
+                    className="px-3 py-1.5 transition-all"
+                    style={{
+                      backgroundColor: "rgba(255, 255, 255, 0.03)",
+                      border: "1px solid var(--border-default)",
+                      borderRadius: "var(--radius-card-sm)",
+                      fontFamily: "var(--label-font)",
+                      fontSize: "var(--label-size)",
+                      color: "var(--text-secondary)",
+                    }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </FadeInSection>
+
+          <FadeInSection delay={0.4}>
+            <div>
+              <h3
+                className="mb-6 uppercase"
+                style={{
+                  fontFamily: "var(--label-font)",
+                  fontWeight: "var(--label-weight)",
+                  fontSize: "var(--label-size)",
+                  letterSpacing: "var(--label-ls)",
+                  color: "var(--accent-neon)",
+                }}
+              >
+                → ИНСТРУМЕНТЫ
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {competencies.tools.map((item) => (
+                  <span
+                    key={item}
+                    className="px-3 py-1.5 transition-all"
+                    style={{
+                      backgroundColor: "rgba(255, 255, 255, 0.03)",
+                      border: "1px solid var(--border-default)",
+                      borderRadius: "var(--radius-card-sm)",
+                      fontFamily: "var(--label-font)",
+                      fontSize: "var(--label-size)",
+                      color: "var(--text-secondary)",
+                    }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </FadeInSection>
         </div>
       </div>
     </section>

@@ -7,6 +7,7 @@ const CV_URL = "https://drive.google.com/file/d/1CefF2K42lhG9cDMnvd3N90YZkjchYGq
 const links = [
   { label: "Обо мне", href: "#about" },
   { label: "Кейсы", href: "#cases" },
+  { label: "Опыт", href: "#experience" },
   { label: "Контакты", href: "#contact" },
 ];
 
@@ -59,7 +60,7 @@ export function Navbar() {
               style={{
                 fontFamily: "var(--h3-font)",
                 fontWeight: "var(--h3-weight)",
-                fontSize: "16px",
+                fontSize: "14px",
                 letterSpacing: "0.12em",
                 color: "var(--accent-neon)",
               }}

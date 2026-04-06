@@ -64,8 +64,8 @@ export function Hero() {
               className="uppercase"
               style={{
                 fontFamily: "var(--label-font)",
-                fontWeight: "800",
-                fontSize: "16px",
+                fontWeight: "var(--label-weight)",
+                fontSize: "14px",
                 lineHeight: "var(--label-lh)",
                 letterSpacing: "0.14em",
                 color: "var(--accent-neon)",
@@ -125,11 +125,10 @@ export function Hero() {
               whileTap={{ scale: 0.98 }}
               className="cursor-pointer font-bold uppercase tracking-widest"
               style={{
-                width: "min(420px, 100%)",
                 padding: "24px 64px",
                 backgroundColor: "transparent",
                 color: "#FFFFFF",
-                borderRadius: "0",
+                borderRadius: "var(--radius-button)",
                 border: "2px solid var(--accent-neon)",
                 fontSize: "18px",
                 transition: "none"
@@ -144,11 +143,10 @@ export function Hero() {
               whileTap={{ scale: 0.98 }}
               className="cursor-pointer font-bold uppercase tracking-widest"
               style={{
-                width: "min(420px, 100%)",
                 padding: "24px 64px",
                 backgroundColor: "transparent",
                 color: "#FFFFFF",
-                borderRadius: "0",
+                borderRadius: "var(--radius-button)",
                 border: "2px solid var(--accent-neon)",
                 fontSize: "18px",
                 transition: "none"

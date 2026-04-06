@@ -1,7 +1,14 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import WolfMain from "../../assets/Wolf_main.webp";
+import WolfMain from "../../assets/Wolf_main(1).jpg";
+import AlfaImg from "../../assets/Alfa(1).png";
+import MotivImg from "../../assets/MOTIV.webp";
+import DixyImg from "../../assets/Dixy(1).jpg";
+import VrImg from "../../assets/VR.jpg";
+import StellarisImg from "../../assets/Tirstellar.png";
+import CryptoPunksImg from "../../assets/CP.png";
+import UnderdogsImg from "../../assets/underdogs.jpg";
 
 function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
@@ -18,94 +25,107 @@ function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; del
   );
 }
 
-const otherCases = [
+type OtherCase = {
+  title: string;
+  role: string;
+  description: string;
+  tags: string[];
+  platform: string;
+  image: string;
+  task: string;
+  result: string;
+  taskLabel?: string;
+  resultLabel?: string;
+};
+
+const otherCases: OtherCase[] = [
   {
-    title: "Wolf",
-    role: "Lead Game Designer",
-    description: "Геймификация системы мотивации в ритейле",
-    tags: ["Gamification", "HR Tech", "Mobile", "Enterprise", "Retention", "Motivation", "B2B"],
-    platform: "Mobile App",
+    title: "WOLF",
+    role: "PRODUCT DESIGNER",
+    description: "Геймифицированный инвестиционный сервис с прогрессией, обучением и системой мотивации",
+    tags: ["TMA", "MOBILE", "FINTECH", "GAMIFICATION", "PROGRESSION", "LEARNING"],
+    platform: "TMA / MOBILE",
     image: WolfMain,
-    task: "Спроектировать экономику, социальные механики и систему прогрессии для долгосрочного удержания",
-    result: "Retention D7: 32%, монетизация выше планового на 18%",
+    task: "Сервис про флиппинг-инвестиции, где финансовый сценарий был переведён в понятный путь пользователя через прогрессию, обучение и систему целей.",
+    result: "Отвечал за вижн проекта, математику наград, мета-прогрессию и общую логику движения пользователя к целевому действию.",
   },
   {
-    title: "Alpha Bot",
-    role: "Game Designer",
-    description: "Telegram-бот с элементами геймификации для финтех-платформы",
-    tags: ["TMA", "Virality", "Retention", "Fintech", "UX", "Telegram", "Bot"],
-    platform: "Telegram Mini App",
-    image: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400&h=300&fit=crop",
-    task: "Создать геймифицированный опыт для fintech-продукта с focus на retention и virality",
-    result: "CAC снижен на 40%, органический трафик +65%",
+    title: "Alfa Bot",
+    role: "GAME DESIGNER",
+    description: "Игровая реферальная система для партнёрской компании одного из топ-3 банков РФ",
+    tags: ["TMA", "BANKING", "REFERRAL", "REWARDS", "PROGRESSION", "META"],
+    platform: "TMA",
+    image: AlfaImg,
+    task: "Приложение для партнёрской компании одного из крупнейших банков РФ, где реферальная система была упакована в игровой сценарий с прогрессией и мотивацией пользователя.",
+    result: "Отвечал за вижн, игровую логику, структуру наград, математику, мета-прогрессию и развитие базового игрового цикла.",
   },
   {
-    title: "Gratio",
-    role: "Game Design Consultant",
-    description: "Корпоративная платформа для управления обучением и развитием сотрудников",
-    tags: ["Engagement", "Audit", "Corporate", "HR Tech", "LMS", "SaaS", "Enterprise"],
-    platform: "Enterprise SaaS",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop",
-    task: "Провести аудит продукта и внедрить игровые механики для повышения engagement",
-    result: "Активность пользователей +52%, NPS вырос с 6.2 до 8.1",
+    title: "Русская Арматура",
+    role: "PRODUCT LEAD",
+    description: "Приложение для мотивации сотрудников через игровые механики и систему прогресса",
+    tags: ["MOBILE", "B2B", "RETAIL", "MOTIVATION", "GOALS", "PROGRESSION"],
+    platform: "MOBILE / B2B",
+    image: MotivImg,
+    task: "NDA-проект для одного из топ-5 ритейл-холдингов РФ: мобильное B2B-приложение для мотивации сотрудников через игровые механики, цели и прогрессию.",
+    result: "Отвечал за вижн, продуктовое видение приложения, кор-цикл, мета-цикл и метрики.",
   },
   {
-    title: "Lootbox Reform",
-    role: "Monetization Designer",
-    description: "Редизайн монетизации для существующей игры с переходом на ethical F2P модель",
-    tags: ["Ethical F2P", "Rework", "Compliance", "Revenue", "Lootbox", "Live Ops", "Monetization"],
-    platform: "PC / Mobile",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop",
-    task: "Перестроить экономику и lootbox-систему под новые требования регуляторов",
-    result: "Revenue удержан на уровне 95%, негативные отзывы снизились на 60%",
+    title: "DIXY Event",
+    role: "PRODUCT MANAGER",
+    description: "Геймифицированная промо-механика для крупного ритейла",
+    tags: ["MOBILE", "RETAIL", "PROMO", "GAMIFICATION", "SCENARIO", "TESTING"],
+    platform: "MOBILE",
+    image: DixyImg,
+    task: "Мобильная промо-механика для крупной розничной сети, где игровой сценарий использовался как инструмент вовлечения и мотивации аудитории.",
+    result: "Отвечал за концепцию механики, пользовательский сценарий, систему мотивации и общую логику проверки идеи в реальной среде.",
   },
   {
-    title: "NFT Marketplace",
-    role: "Lead Game Designer",
-    description: "Web3 маркетплейс с игровыми механиками для трейдинга NFT",
-    tags: ["Trading", "Gamification", "LTV", "Web3", "Marketplace", "NFT", "DeFi"],
-    platform: "Web3",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
-    task: "Спроектировать игровой слой поверх базового функционала маркетплейса",
-    result: "Средний LTV пользователя +120%, retention D30: 28%",
+    title: "VR Healthcare",
+    role: "GAME DESIGNER",
+    description: "VR-игра для релакса пациентов в сети клиник ОАЭ",
+    tags: ["VR", "HEALTHCARE", "RELAX", "INTERACTIVE", "MINI-GAMES", "UX"],
+    platform: "VR",
+    image: VrImg,
+    task: "VR-игра для сети клиник в ОАЭ, созданная как инструмент релаксации пациентов через спокойный интерактивный опыт и простые игровые сценарии.",
+    result: "Отвечал за общий вижн проекта, кор-механики и визуальное направление.",
   },
   {
-    title: "Cyber Arena",
-    role: "Balance Designer",
-    description: "Киберспортивная арена с упором на соревновательный баланс и турниры",
-    tags: ["Combat", "Balancing", "eSports", "PvP", "Matchmaking", "Tournament", "PC"],
+    title: "Stellaris",
+    role: "LEAD GAME DESIGNER",
+    description: "Масштабная MMORPG в космическом сеттинге с развитой экономикой",
+    tags: ["MMORPG", "ECONOMY", "META", "SYSTEMS", "PVP", "PVE"],
+    platform: "PC / MOBILE / WEB",
+    image: StellarisImg,
+    task: "Масштабная MMORPG в космическом сеттинге с глубокой экономикой, развитием игрока и большим системным слоем.",
+    result: "Отвечал за направление геймдизайна в компании, экономику проекта, мета-системы и общение с заказчиками.",
+  },
+  {
+    title: "Крипто Панки",
+    role: "GAME DESIGNER",
+    description: "Одна из первых успешных крипто-игр в TMA с амбассадорами NFT",
+    tags: ["TMA", "CRYPTO", "NFT", "COMMUNITY", "ECONOMY", "LIVE-OPS"],
+    platform: "TMA",
+    image: CryptoPunksImg,
+    task: "Одна из первых заметных крипто-игр в TMA, построенная вокруг комьюнити, NFT-амбассадоров, обновлений и живой игровой экономики.",
+    result: "Отвечал за разработку и балансировку обновлений, кейсы и дорожную карту проекта.",
+  },
+  {
+    title: "Underdogs",
+    role: "GAME DESIGNER",
+    description: "Изометрический тактический MMO-шутер в постапокалиптическом сеттинге США",
+    tags: ["PC", "MMO", "SHOOTER", "TACTICAL", "EXTRACTION", "UNITY"],
     platform: "PC",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop",
-    task: "Сбалансировать PvP-систему и спроектировать турнирную сетку",
-    result: "MAU +45%, среднее время сессии выросло на 20%",
-  },
-  {
-    title: "EduQuest",
-    role: "Game Designer",
-    description: "Образовательная платформа с RPG-механиками для повышения вовлеченности",
-    tags: ["Learning", "Quests", "RPG", "Kids", "Mobile", "Education", "Edutainment"],
-    platform: "Mobile",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop",
-    task: "Создать RPG-надстройку над образовательным контентом для детей",
-    result: "Completion rate курсов вырос на 75%",
-  },
-  {
-    title: "Crypto Farm",
-    role: "Tokenomics Designer",
-    description: "Децентрализованная ферма с элементами добычи и стейкинга активов",
-    tags: ["Tokenomics", "Staking", "Mining", "Idle", "Blockchain", "Web3", "TMA"],
-    platform: "Web3 / TMA",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
-    task: "Разработать устойчивую токеномику для децентрализованной фермы",
-    result: "ТВЛ вырос в 3 раза за первый месяц без гиперинфляции",
+    image: UnderdogsImg,
+    task: "Изометрический тактический MMO-шутер с элементами экстракшена в постапокалиптическом сеттинге США.",
+    result: "Отвечал за вижн продукта, разработку кор-геймплея, балансировку ассетов, настройку в Unity и нарративную составляющую.",
   },
 ];
 
-function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof otherCases[0]; delay: number; isFlipped: boolean; onFlip: () => void }) {
+function FlipCard({ project, delay, isFlipped, onFlip }: { project: OtherCase; delay: number; isFlipped: boolean; onFlip: () => void }) {
   return (
     <FadeInSection delay={delay}>
       <div
-        className="relative h-[380px] cursor-pointer perspective-1000"
+        className="relative h-[420px] cursor-pointer perspective-1000"
         onClick={onFlip}
       >
         <motion.div
@@ -116,10 +136,10 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
         >
           {/* Front side */}
           <div
-            className="absolute inset-0 backface-hidden overflow-hidden transition-all flex flex-col"
+            className="foil-card absolute inset-0 backface-hidden overflow-hidden transition-all flex flex-col"
             style={{
               backfaceVisibility: "hidden",
-              border: "1px solid var(--border-default)",
+              border: "2px solid var(--border-default)",
               backgroundColor: "var(--bg-card)",
             }}
             onMouseEnter={(e) => e.currentTarget.style.borderColor = "var(--accent-neon)"}
@@ -140,7 +160,7 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
                 }} 
               />
               <span
-                className="absolute top-2 right-2 px-2 py-0.5 uppercase text-[9px]"
+                className="foil-content absolute top-2 right-2 px-2 py-0.5 uppercase text-[9px]"
                 style={{
                   backgroundColor: "var(--accent-neon)",
                   color: "var(--accent-neon-dark)",
@@ -154,12 +174,12 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
             </div>
 
             {/* Content */}
-            <div className="p-4 flex flex-col h-full">
+            <div className="foil-content foil-panel p-4 flex flex-col h-full">
               {/* Spacer to push content down */}
               <div className="flex-1" />
               
               {/* Role */}
-              <p className="text-[10px] uppercase tracking-wider mb-2" style={{ color: "var(--accent-neon)" }}>
+              <p className="text-[12px] uppercase tracking-wider mb-2" style={{ color: "var(--accent-neon)", fontWeight: 800 }}>
                 {project.role}
               </p>
               
@@ -195,13 +215,13 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
             style={{
               backfaceVisibility: "hidden",
               transform: "rotateY(180deg)",
-              border: "1px solid var(--border-default)",
+              border: "2px solid var(--border-default)",
               backgroundColor: "var(--bg-card)",
             }}
           >
             {/* Top: Task and Result */}
-            <div className="p-4 flex-1 min-h-0 overflow-y-auto">
-              <div className="mb-4">
+            <div className="p-4 flex-1">
+              <div className="mb-3">
                 <p
                   className="mb-2 uppercase text-[10px]"
                   style={{
@@ -212,13 +232,13 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
                     color: "var(--accent-neon)",
                   }}
                 >
-                  → ЗАДАЧА
+                  {project.taskLabel ?? "→ ОПИСАНИЕ"}
                 </p>
                 <p
-                  className="text-xs"
+                  className="text-[11px]"
                   style={{
                     fontFamily: "var(--body-font)",
-                    lineHeight: "1.5",
+                    lineHeight: "1.45",
                     color: "var(--text-secondary)",
                   }}
                 >
@@ -226,7 +246,7 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
                 </p>
               </div>
 
-              <div className="mb-4">
+              <div className="mb-3">
                 <p
                   className="mb-2 uppercase text-[10px]"
                   style={{
@@ -237,13 +257,13 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
                     color: "var(--accent-neon)",
                   }}
                 >
-                  → РЕЗУЛЬТАТ
+                  {project.resultLabel ?? "→ РОЛЬ"}
                 </p>
                 <p
-                  className="text-xs"
+                  className="text-[11px]"
                   style={{
                     fontFamily: "var(--body-font)",
-                    lineHeight: "1.5",
+                    lineHeight: "1.45",
                     color: "var(--text-secondary)",
                   }}
                 >
@@ -254,7 +274,6 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
 
             {/* Bottom: Tags and Back link */}
             <div className="p-4 flex-shrink-0">
-              {/* Tags */}
               <div className="mb-3">
                 <p
                   className="mb-2 uppercase text-[10px]"
@@ -284,7 +303,6 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
                   ))}
                 </div>
               </div>
-
               {/* Back link */}
               <div className="flex justify-start">
                 <span
@@ -313,7 +331,7 @@ export function OtherCases() {
     <section className="py-24 px-6" style={{ backgroundColor: "var(--bg-primary)" }}>
       <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
         <FadeInSection>
-          <h2 style={{ color: "var(--text-primary)", marginBottom: "var(--content-gap)" }}>
+          <h2 className="screen-title" style={{ color: "var(--text-primary)", marginBottom: "var(--content-gap)" }}>
             ОСТАЛЬНЫЕ КЕЙСЫ
           </h2>
         </FadeInSection>

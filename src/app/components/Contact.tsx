@@ -51,45 +51,46 @@ export function Contact() {
 
         {/* CTA buttons */}
         <FadeInSection delay={0.2}>
-          <div className="flex flex-wrap gap-4">
-            <a
+          <div className="flex flex-wrap gap-6">
+            <motion.a
               href="https://t.me/alexander_baturin"
-              className="flex items-center gap-2 transition-all hover:shadow-[0_0_20px_rgba(204,255,0,0.6)]"
+              whileHover={{ backgroundColor: "var(--accent-neon)", color: "#000000" }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-2 cursor-pointer font-bold uppercase tracking-widest"
               style={{
-                padding: "var(--btn-padding)",
-                backgroundColor: "var(--accent-neon)",
-                color: "var(--accent-neon-dark)",
-                borderRadius: "var(--radius-button)",
-                fontFamily: "var(--label-font)",
-                fontWeight: "var(--label-weight)",
-                fontSize: "var(--label-size)",
-                letterSpacing: "var(--label-ls)",
-                textTransform: "uppercase",
-                textDecoration: "none",
-              }}
-            >
-              <Send size={18} />
-              Написать мне
-            </a>
-            <a
-              href="mailto:a.baturin@gamedesign.ru"
-              className="flex items-center gap-2 transition-all hover:shadow-[0_0_20px_rgba(204,255,0,0.4)] hover:border-[var(--accent-neon)]"
-              style={{
-                padding: "var(--btn-padding)",
+                padding: "25px 65px",
                 backgroundColor: "transparent",
-                color: "var(--accent-neon)",
-                border: "1px solid var(--border-button)",
-                borderRadius: "var(--radius-button)",
-                fontFamily: "var(--label-font)",
-                fontWeight: "var(--label-weight)",
-                fontSize: "var(--label-size)",
-                letterSpacing: "var(--label-ls)",
-                textTransform: "uppercase",
+                color: "#FFFFFF",
+                borderRadius: "0",
+                border: "1px solid var(--accent-neon)",
+                fontSize: "18px",
                 textDecoration: "none",
+                transition: "none"
               }}
+              transition={{ duration: 0 }}
+            >
+              <Send size={20} />
+              Написать мне
+            </motion.a>
+            <motion.a
+              href="mailto:a.baturin@gamedesign.ru"
+              whileHover={{ backgroundColor: "var(--accent-neon)", color: "#000000" }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-2 cursor-pointer font-bold uppercase tracking-widest"
+              style={{
+                padding: "25px 65px",
+                backgroundColor: "transparent",
+                color: "#FFFFFF",
+                borderRadius: "0",
+                border: "1px solid var(--accent-neon)",
+                fontSize: "18px",
+                textDecoration: "none",
+                transition: "none"
+              }}
+              transition={{ duration: 0 }}
             >
               Email
-            </a>
+            </motion.a>
           </div>
         </FadeInSection>
 

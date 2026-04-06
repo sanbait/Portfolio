@@ -16,69 +16,81 @@ function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; del
   );
 }
 
-const strengths = [
-  {
-    title: "Вижу продукт целиком",
-    description:
-      "Понимаю, как игровые системы влияют на бизнес-метрики. Могу выстроить цельный продукт от игрового цикла до монетизации и удержания, а не просто набор фич. Умею работать с живыми данными и корректировать направление на основе реальных сигналов от аудитории.",
-  },
-  {
-    title: "Держу фокус и границы",
-    description:
-      "Умею определять главное и не распыляться на второстепенное. Выстраиваю приоритеты так, чтобы команда двигалась к релизу, а не уходила в бесконечную доработку. Удерживаю проект в рабочих рамках по времени, ресурсам и скоупу.",
-  },
-  {
-    title: "Делаю, а не только проектирую",
-    description:
-      "Не боюсь брать ответственность за результат и доводить проекты до финальной версии. Работаю в компактных командах, где нужно не просто писать документы, а собирать рабочие продукты. Перехожу от концепта к MVP и от MVP к релизу.",
-  },
-];
-
 export function Strength() {
+  const content = [
+    {
+      title: "ПСИХОЛОГИЯ ИГРОКА",
+      description: "Понимаю, что движет людьми. Использую дофаминовые петли и когнитивные искажения для создания устойчивой лояльности.",
+    },
+    {
+      title: "МАТЕМАТИЧЕСКИЙ БАЛАНС",
+      description: "Любая эмоция в продукте должна быть подкреплена жесткой математической моделью и просчитанной экономикой.",
+    },
+    {
+      title: "ИТЕРАТИВНЫЙ ПРОЦЕСС",
+      description: "Гипотеза — Тест — Анализ — Масштабирование. Только такой цикл гарантирует достижение бизнес-целей.",
+    }
+  ];
+
   return (
-    <section id="strength" className="py-24 px-6" style={{ backgroundColor: "var(--bg-primary)" }}>
+    <section 
+      id="strength" 
+      className="py-24 px-6 md:px-12" 
+      style={{ backgroundColor: "var(--accent-neon)" }}
+    >
       <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
         <FadeInSection>
-          <div className="flex flex-col lg:flex-row gap-16 items-start">
-            {/* Left: Large heading */}
-            <div className="lg:w-2/5 flex-shrink-0">
-              <h2
-                style={{
-                  fontFamily: "var(--h2-font)",
-                  fontWeight: "var(--h2-weight)",
-                  fontSize: "var(--h2-size)",
-                  lineHeight: "var(--h2-lh)",
-                  color: "var(--text-primary)",
-                }}
-              >
-                СИСТЕМНОЕ
-                <br />
-                <span style={{ color: "var(--accent-neon)" }}>МЫШЛЕНИЕ</span>
-              </h2>
-            </div>
+          <div className="mb-20">
+            <h2
+              style={{
+                fontFamily: "var(--h2-font)",
+                fontWeight: "900",
+                fontSize: "clamp(3rem, 10vw, 8rem)",
+                lineHeight: "0.9",
+                color: "#000000",
+                letterSpacing: "-0.04em",
+                textTransform: "uppercase"
+              }}
+            >
+              СИСТЕМНОЕ
+              <br />
+              МЫШЛЕНИЕ
+            </h2>
+          </div>
 
-            {/* Right: Text content */}
-            <div className="flex-1 space-y-8">
-              {strengths.map((item, i) => (
-                <FadeInSection key={i} delay={0.1 + i * 0.1}>
-                  <div>
-                    <h3 className="mb-3" style={{ color: "var(--text-primary)" }}>
-                      {item.title}
-                    </h3>
-                    <p
-                      style={{
-                        fontFamily: "var(--body-font)",
-                        fontSize: "var(--body-size)",
-                        lineHeight: "var(--body-lh)",
-                        color: "var(--text-secondary)",
-                      }}
-                    >
-                      {item.description}
-                    </p>
-                  </div>
-                </FadeInSection>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
+            {content.map((item, i) => (
+              <FadeInSection key={i} delay={0.1 + i * 0.1}>
+                <div className="flex flex-col h-full">
+                  <h3 
+                    className="mb-3 font-black" 
+                    style={{ 
+                      color: "#000000",
+                      fontSize: "1.2rem",
+                      letterSpacing: "0.05em",
+                      textTransform: "uppercase"
+                    }}
+                  >
+                    {item.title}
+                  </h3>
+                  <div 
+                    className="w-full h-[2px] mb-6" 
+                    style={{ backgroundColor: "#000000" }} 
+                  />
+                  <p
+                    style={{
+                      fontFamily: "var(--body-font)",
+                      fontSize: "1.1rem",
+                      lineHeight: "1.4",
+                      color: "#000000",
+                      fontWeight: "500"
+                    }}
+                  >
+                    {item.description}
+                  </p>
+                </div>
+              </FadeInSection>
+            ))}
           </div>
         </FadeInSection>
       </div>

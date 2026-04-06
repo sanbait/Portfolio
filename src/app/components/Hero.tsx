@@ -65,7 +65,7 @@ export function Hero() {
               style={{
                 fontFamily: "var(--label-font)",
                 fontWeight: "var(--label-weight)",
-                fontSize: "21px",
+                fontSize: "14px",
                 lineHeight: "var(--label-lh)",
                 letterSpacing: "0.14em",
                 color: "var(--accent-neon)",
@@ -116,34 +116,44 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.5 }}
-            className="flex flex-wrap gap-4 justify-center"
+            className="flex flex-wrap gap-6 justify-center"
           >
-            <button
+            <motion.button
               onClick={scrollToAbout}
-              className="transition-all hover:-translate-y-[1px]"
+              whileHover={{ backgroundColor: "var(--accent-neon)", color: "#000000" }}
+              whileTap={{ scale: 0.98 }}
+              className="cursor-pointer font-bold uppercase tracking-widest"
               style={{
-                padding: "var(--btn-padding)",
-                backgroundColor: "var(--accent-neon)",
-                color: "var(--accent-neon-dark)",
+                padding: "24px 64px",
+                backgroundColor: "transparent",
+                color: "#FFFFFF",
                 borderRadius: "var(--radius-button)",
-                border: "1px solid var(--accent-neon)",
+                border: "2px solid var(--accent-neon)",
+                fontSize: "18px",
+                transition: "none"
               }}
+              transition={{ duration: 0 }}
             >
               Кейсы
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               onClick={scrollToContact}
-              className="transition-all hover:-translate-y-[1px]"
+              whileHover={{ backgroundColor: "var(--accent-neon)", color: "#000000" }}
+              whileTap={{ scale: 0.98 }}
+              className="cursor-pointer font-bold uppercase tracking-widest"
               style={{
-                padding: "var(--btn-padding)",
+                padding: "24px 64px",
                 backgroundColor: "transparent",
-                color: "var(--accent-neon)",
+                color: "#FFFFFF",
                 borderRadius: "var(--radius-button)",
-                border: "1px solid var(--border-button)",
+                border: "2px solid var(--accent-neon)",
+                fontSize: "18px",
+                transition: "none"
               }}
+              transition={{ duration: 0 }}
             >
               Контакты
-            </button>
+            </motion.button>
           </motion.div>
         </div>
       </div>
@@ -157,23 +167,25 @@ export function Hero() {
           backgroundColor: "transparent",
         }}
       >
-        <motion.div
-          animate={{ x: [0, -2000] }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="flex gap-8 whitespace-nowrap items-center h-full"
-          style={{
-            fontFamily: "var(--marquee-font)",
-            fontWeight: "var(--marquee-weight)",
-            fontSize: "var(--marquee-size)",
-            letterSpacing: "var(--marquee-ls)",
-          }}
-        >
-          {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className="flex items-center gap-8" style={{ color: "var(--accent-neon)" }}>
-              {item} <span>•</span>
-            </span>
-          ))}
-        </motion.div>
+        <div className="flex w-fit items-center h-full">
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            className="flex gap-8 whitespace-nowrap items-center px-4"
+            style={{
+              fontFamily: "var(--marquee-font)",
+              fontWeight: "var(--marquee-weight)",
+              fontSize: "var(--marquee-size)",
+              letterSpacing: "var(--marquee-ls)",
+            }}
+          >
+            {[...marqueeItems, ...marqueeItems].map((item, i) => (
+              <span key={i} className="flex items-center gap-8" style={{ color: "var(--accent-neon)" }}>
+                {item} <span>•</span>
+              </span>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );

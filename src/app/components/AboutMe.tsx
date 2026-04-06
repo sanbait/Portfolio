@@ -30,7 +30,7 @@ export function AboutMe() {
           {/* Left: Portrait */}
           <FadeInSection>
             <div className="relative flex-shrink-0">
-              <div className="relative w-[420px] h-[520px]">
+              <div className="relative w-full max-w-[420px] aspect-[420/520] md:w-[420px] md:h-[520px]">
                 <div
                   className="absolute inset-0 overflow-hidden"
                   style={{ border: "1px solid var(--border-default)" }}
@@ -77,7 +77,7 @@ export function AboutMe() {
                   Senior Game Designer с 8+ годами опыта. Специализируюсь на экономике, системном дизайне и монетизации. Смотрю на проект не как на набор фич, а как на цельную игровую систему: прогрессия, баланс, награды, удержание, мотивация игрока и точки роста продукта.
                 </p>
                 <p>
-                  Работаю с PC, mobile, Web3 и Telegram Mini Apps. Проектирую игровые экономики, системы прогрессии, социальные механики и монетизацию для F2P, MMO и геймифицированных продуктов. Моя сильная сторона — data-driven подход и макро-видение: умею видеть проект целиком, принимать решения на основе метрик и собирать решения, которые работают не только на уровне дизайна, но и на уровне продукта.
+                  Работаю с PC, mobile, Web3 и Telegram Mini Apps. Проектирую игровые экономики, системы прогрессии, социальные механики и монетизацию для F2P, MMO и геймифицированных продуктов. Моя сильная сторона — data-driven подход and макро-видение: умею видеть проект целиком, принимать решения на основе метрик и собирать решения, которые работают не только на уровне дизайна, но и на уровне продукта.
                 </p>
               </div>
             </FadeInSection>
@@ -85,9 +85,9 @@ export function AboutMe() {
             <FadeInSection delay={0.3}>
               <div
                 className="mt-10 pt-8"
-                style={{ borderTop: "1px solid rgba(255, 255, 255, 0.05)" }}
+                style={{ borderTop: "1px solid var(--border-default)" }}
               >
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-6">
                   <div>
                     <p
                       className="mb-2 uppercase"
@@ -98,13 +98,12 @@ export function AboutMe() {
                         lineHeight: "var(--label-lh)",
                         letterSpacing: "var(--label-ls)",
                         color: "var(--accent-neon)",
+                        opacity: 0.8
                       }}
                     >
                       ЛОКАЦИЯ
                     </p>
-                    <p style={{ fontFamily: "var(--body-font)", color: "var(--text-secondary)" }}>
-                      Москва / удалённо
-                    </p>
+                    <p style={{ color: "var(--text-primary)" }}>Москва / удалённо</p>
                   </div>
                   <div>
                     <p
@@ -116,13 +115,12 @@ export function AboutMe() {
                         lineHeight: "var(--label-lh)",
                         letterSpacing: "var(--label-ls)",
                         color: "var(--accent-neon)",
+                        opacity: 0.8
                       }}
                     >
                       ОПЫТ
                     </p>
-                    <p style={{ fontFamily: "var(--body-font)", color: "var(--text-secondary)" }}>
-                      8+ лет в game design
-                    </p>
+                    <p style={{ color: "var(--text-primary)" }}>8+ лет в game design</p>
                   </div>
                   <div>
                     <p
@@ -134,13 +132,12 @@ export function AboutMe() {
                         lineHeight: "var(--label-lh)",
                         letterSpacing: "var(--label-ls)",
                         color: "var(--accent-neon)",
+                        opacity: 0.8
                       }}
                     >
                       ПЛАТФОРМЫ
                     </p>
-                    <p style={{ fontFamily: "var(--body-font)", color: "var(--text-secondary)" }}>
-                      PC, mobile, TMA, Web3
-                    </p>
+                    <p style={{ color: "var(--text-primary)" }}>PC, mobile, TMA, Web3</p>
                   </div>
                   <div>
                     <p
@@ -152,13 +149,12 @@ export function AboutMe() {
                         lineHeight: "var(--label-lh)",
                         letterSpacing: "var(--label-ls)",
                         color: "var(--accent-neon)",
+                        opacity: 0.8
                       }}
                     >
                       СПЕЦИАЛИЗАЦИЯ
                     </p>
-                    <p style={{ fontFamily: "var(--body-font)", color: "var(--text-secondary)" }}>
-                      Economy, Systems, Data-Driven
-                    </p>
+                    <p style={{ color: "var(--text-primary)" }}>Economy, Systems, Data-Driven</p>
                   </div>
                 </div>
               </div>

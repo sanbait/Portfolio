@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import WolfMain from "../../assets/Wolf_main.webp";
 
 function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
@@ -19,22 +20,20 @@ function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; del
 
 const otherCases = [
   {
-    title: "MetaLife",
-    role: "Lead System Designer",
-    genre: "Social MMO / Extraction",
-    description: "Социальная мобильная игра с упором на создание контента и взаимодействие между игроками",
-    tags: ["Economy", "Social", "Web3", "MMO", "Tokenomics"],
-    platform: "Mobile F2P",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop",
+    title: "Wolf",
+    role: "Lead Game Designer",
+    description: "Геймификация системы мотивации в ритейле",
+    tags: ["Gamification", "HR Tech", "Mobile", "Enterprise", "Retention", "Motivation", "B2B"],
+    platform: "Mobile App",
+    image: WolfMain,
     task: "Спроектировать экономику, социальные механики и систему прогрессии для долгосрочного удержания",
     result: "Retention D7: 32%, монетизация выше планового на 18%",
   },
   {
     title: "Alpha Bot",
-    role: "Product Designer",
-    genre: "Fintech Gamification",
+    role: "Game Designer",
     description: "Telegram-бот с элементами геймификации для финтех-платформы",
-    tags: ["TMA", "Virality", "Retention", "Fintech", "UX"],
+    tags: ["TMA", "Virality", "Retention", "Fintech", "UX", "Telegram", "Bot"],
     platform: "Telegram Mini App",
     image: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=400&h=300&fit=crop",
     task: "Создать геймифицированный опыт для fintech-продукта с focus на retention и virality",
@@ -42,10 +41,9 @@ const otherCases = [
   },
   {
     title: "Gratio",
-    role: "Product Consultant",
-    genre: "Edutainment / SaaS",
+    role: "Game Design Consultant",
     description: "Корпоративная платформа для управления обучением и развитием сотрудников",
-    tags: ["Engagement", "Audit", "Corporate", "HR Tech", "LMS"],
+    tags: ["Engagement", "Audit", "Corporate", "HR Tech", "LMS", "SaaS", "Enterprise"],
     platform: "Enterprise SaaS",
     image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop",
     task: "Провести аудит продукта и внедрить игровые механики для повышения engagement",
@@ -53,10 +51,9 @@ const otherCases = [
   },
   {
     title: "Lootbox Reform",
-    role: "Economy Designer",
-    genre: "Live Ops / Monetization",
+    role: "Monetization Designer",
     description: "Редизайн монетизации для существующей игры с переходом на ethical F2P модель",
-    tags: ["Ethical F2P", "Rework", "Compliance", "Revenue", "Lootbox"],
+    tags: ["Ethical F2P", "Rework", "Compliance", "Revenue", "Lootbox", "Live Ops", "Monetization"],
     platform: "PC / Mobile",
     image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop",
     task: "Перестроить экономику и lootbox-систему под новые требования регуляторов",
@@ -64,10 +61,9 @@ const otherCases = [
   },
   {
     title: "NFT Marketplace",
-    role: "Game Design Consultant",
-    genre: "Web3 Ecosystem",
+    role: "Lead Game Designer",
     description: "Web3 маркетплейс с игровыми механиками для трейдинга NFT",
-    tags: ["Trading", "Gamification", "LTV", "Web3", "Marketplace"],
+    tags: ["Trading", "Gamification", "LTV", "Web3", "Marketplace", "NFT", "DeFi"],
     platform: "Web3",
     image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
     task: "Спроектировать игровой слой поверх базового функционала маркетплейса",
@@ -75,10 +71,9 @@ const otherCases = [
   },
   {
     title: "Cyber Arena",
-    role: "Lead Designer",
-    genre: "Battler / PvP",
+    role: "Balance Designer",
     description: "Киберспортивная арена с упором на соревновательный баланс и турниры",
-    tags: ["Combat", "Balancing", "eSports", "PvP", "Matchmaking"],
+    tags: ["Combat", "Balancing", "eSports", "PvP", "Matchmaking", "Tournament", "PC"],
     platform: "PC",
     image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop",
     task: "Сбалансировать PvP-систему и спроектировать турнирную сетку",
@@ -86,10 +81,9 @@ const otherCases = [
   },
   {
     title: "EduQuest",
-    role: "Game Architect",
-    genre: "Mobile Education",
+    role: "Game Designer",
     description: "Образовательная платформа с RPG-механиками для повышения вовлеченности",
-    tags: ["Learning", "Quests", "RPG", "Kids", "Mobile"],
+    tags: ["Learning", "Quests", "RPG", "Kids", "Mobile", "Education", "Edutainment"],
     platform: "Mobile",
     image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop",
     task: "Создать RPG-надстройку над образовательным контентом для детей",
@@ -97,10 +91,9 @@ const otherCases = [
   },
   {
     title: "Crypto Farm",
-    role: "Economy Lead",
-    genre: "Idle / Web3",
+    role: "Tokenomics Designer",
     description: "Децентрализованная ферма с элементами добычи и стейкинга активов",
-    tags: ["Tokenomics", "Staking", "Mining", "Idle", "Blockchain"],
+    tags: ["Tokenomics", "Staking", "Mining", "Idle", "Blockchain", "Web3", "TMA"],
     platform: "Web3 / TMA",
     image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
     task: "Разработать устойчивую токеномику для децентрализованной фермы",
@@ -112,7 +105,7 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
   return (
     <FadeInSection delay={delay}>
       <div
-        className="relative h-[420px] cursor-pointer perspective-1000"
+        className="relative h-[380px] cursor-pointer perspective-1000"
         onClick={onFlip}
       >
         <motion.div
@@ -123,7 +116,7 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
         >
           {/* Front side */}
           <div
-            className="absolute inset-0 backface-hidden overflow-hidden transition-all"
+            className="absolute inset-0 backface-hidden overflow-hidden transition-all flex flex-col"
             style={{
               backfaceVisibility: "hidden",
               border: "1px solid var(--border-default)",
@@ -133,21 +126,19 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
             onMouseLeave={(e) => e.currentTarget.style.borderColor = "var(--border-default)"}
           >
             {/* Image */}
-            <div className="relative h-36 overflow-hidden">
+            <div className="relative h-48 flex-shrink-0 overflow-hidden">
               <ImageWithFallback
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover opacity-60"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, var(--bg-card), transparent)" }} />
               <span
-                className="absolute top-3 right-3 px-2.5 py-1 uppercase"
+                className="absolute top-2 right-2 px-2 py-0.5 uppercase text-[9px]"
                 style={{
                   backgroundColor: "var(--accent-neon)",
                   color: "var(--accent-neon-dark)",
                   fontFamily: "var(--label-font)",
                   fontWeight: "var(--label-weight)",
-                  fontSize: "var(--label-size)",
                   letterSpacing: "var(--label-ls)",
                 }}
               >
@@ -155,65 +146,36 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
               </span>
             </div>
 
-            {/* Content - fixed layout */}
-            <div className="p-5 flex flex-col" style={{ height: "calc(100% - 144px)" }}>
-              {/* Title - fixed height */}
-              <h3 className="mb-2 h-[28px] flex items-center" style={{ color: "var(--text-primary)" }}>
+            {/* Content */}
+            <div className="p-4 flex flex-col h-full">
+              {/* Spacer to push content down */}
+              <div className="flex-1" />
+              
+              {/* Role */}
+              <p className="text-[10px] uppercase tracking-wider mb-2" style={{ color: "var(--accent-neon)" }}>
+                {project.role}
+              </p>
+              
+              {/* Title */}
+              <h3 className="text-lg font-medium mb-1" style={{ color: "var(--text-primary)" }}>
                 {project.title}
               </h3>
               
-              {/* Description - fixed height with clamp */}
-              <p
-                className="line-clamp-2 mb-3 h-[36px]"
-                style={{
-                  fontFamily: "var(--body-font)",
-                  fontSize: "12px",
-                  lineHeight: "1.4",
-                  color: "var(--text-tertiary)",
-                }}
-              >
+              {/* Description */}
+              <p className="text-xs leading-relaxed mb-3" style={{ color: "var(--text-secondary)" }}>
                 {project.description}
               </p>
 
-              {/* Tags - fixed height */}
-              <div className="flex flex-wrap gap-1.5 mb-3 h-[22px] overflow-hidden">
-                {project.tags.slice(0, 4).map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="px-2 py-0.5 text-[9px] uppercase tracking-widest bg-white/5"
-                    style={{
-                      border: "1px solid rgba(204, 255, 0, 0.3)",
-                      color: "var(--accent-neon)",
-                      borderRadius: "2px"
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              
-              {/* Role/Genre - fixed height */}
-              <div className="space-y-1.5 mb-3 text-[11px] uppercase tracking-wider font-mono h-[42px]">
-                <div className="flex justify-between">
-                  <span style={{ color: "var(--text-secondary)" }}>Роль:</span>
-                  <span style={{ color: "var(--text-primary)" }} className="text-right truncate ml-2">{project.role}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span style={{ color: "var(--text-secondary)" }}>Жанр:</span>
-                  <span style={{ color: "var(--text-primary)" }} className="text-right truncate ml-2">{project.genre}</span>
-                </div>
-              </div>
-
-              {/* Arrow - always at bottom */}
-              <div className="flex justify-end mt-auto">
+              {/* Arrow at bottom */}
+              <div className="flex justify-end">
                 <span
                   style={{
-                    fontSize: "24px",
+                    fontSize: "20px",
                     color: "var(--accent-neon)",
                     fontWeight: "900"
                   }}
                 >
-                  →
+                  ↓
                 </span>
               </div>
             </div>
@@ -221,7 +183,7 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
 
           {/* Back side */}
           <div
-            className="absolute inset-0 backface-hidden p-5 flex flex-col justify-between"
+            className="absolute inset-0 backface-hidden overflow-hidden flex flex-col"
             style={{
               backfaceVisibility: "hidden",
               transform: "rotateY(180deg)",
@@ -230,10 +192,10 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
             }}
           >
             {/* Top: Task and Result */}
-            <div className="space-y-6">
-              <div>
+            <div className="p-4 flex-1 min-h-0 overflow-y-auto">
+              <div className="mb-4">
                 <p
-                  className="mb-2 uppercase"
+                  className="mb-2 uppercase text-[10px]"
                   style={{
                     fontFamily: "var(--label-font)",
                     fontWeight: "var(--label-weight)",
@@ -245,10 +207,10 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
                   → ЗАДАЧА
                 </p>
                 <p
+                  className="text-xs"
                   style={{
                     fontFamily: "var(--body-font)",
-                    fontSize: "var(--secondary-size)",
-                    lineHeight: "var(--secondary-lh)",
+                    lineHeight: "1.5",
                     color: "var(--text-secondary)",
                   }}
                 >
@@ -256,9 +218,9 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
                 </p>
               </div>
 
-              <div>
+              <div className="mb-4">
                 <p
-                  className="mb-2 uppercase"
+                  className="mb-2 uppercase text-[10px]"
                   style={{
                     fontFamily: "var(--label-font)",
                     fontWeight: "var(--label-weight)",
@@ -270,10 +232,10 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
                   → РЕЗУЛЬТАТ
                 </p>
                 <p
+                  className="text-xs"
                   style={{
                     fontFamily: "var(--body-font)",
-                    fontSize: "var(--secondary-size)",
-                    lineHeight: "var(--secondary-lh)",
+                    lineHeight: "1.5",
                     color: "var(--text-secondary)",
                   }}
                 >
@@ -282,17 +244,51 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
               </div>
             </div>
 
-            {/* Bottom: Back link */}
-            <div className="flex justify-start">
-              <span 
-                style={{ 
-                  fontSize: "24px", 
-                  color: "var(--accent-neon)",
-                  fontWeight: "900" 
-                }}
-              >
-                ←
-              </span>
+            {/* Bottom: Tags and Back link */}
+            <div className="p-4 flex-shrink-0">
+              {/* Tags */}
+              <div className="mb-3">
+                <p
+                  className="mb-2 uppercase text-[10px]"
+                  style={{
+                    fontFamily: "var(--label-font)",
+                    fontWeight: "var(--label-weight)",
+                    fontSize: "var(--label-size)",
+                    letterSpacing: "var(--label-ls)",
+                    color: "var(--accent-neon)",
+                  }}
+                >
+                  → ТЕГИ
+                </p>
+                <div className="flex flex-wrap gap-1">
+                  {project.tags.map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className="px-1.5 py-0.5 text-[8px] uppercase tracking-widest bg-white/5"
+                      style={{
+                        border: "1px solid rgba(204, 255, 0, 0.3)",
+                        color: "var(--accent-neon)",
+                        borderRadius: "2px"
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Back link */}
+              <div className="flex justify-start">
+                <span
+                  style={{
+                    fontSize: "20px",
+                    color: "var(--accent-neon)",
+                    fontWeight: "900"
+                  }}
+                >
+                  ←
+                </span>
+              </div>
             </div>
           </div>
         </motion.div>

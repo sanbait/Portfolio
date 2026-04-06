@@ -32,8 +32,8 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        backgroundColor: scrolled ? "rgba(10, 10, 10, 0.95)" : "rgba(10, 10, 10, 0.7)",
-        backdropFilter: scrolled ? "blur(12px)" : "blur(6px)",
+        backgroundColor: scrolled ? "rgba(10, 10, 10, 0.85)" : "rgba(10, 10, 10, 0.15)",
+        backdropFilter: "blur(12px)",
         borderBottom: scrolled ? "1px solid rgba(204, 255, 0, 0.2)" : "1px solid rgba(204, 255, 0, 0.1)",
         boxShadow: scrolled ? "0 8px 32px rgba(204, 255, 0, 0.05)" : "none",
       }}

@@ -132,6 +132,13 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
                 alt={project.title}
                 className="w-full h-full object-cover"
               />
+              {/* Smooth transition gradient */}
+              <div 
+                className="absolute inset-0" 
+                style={{ 
+                  background: "linear-gradient(to bottom, transparent 60%, var(--bg-card) 100%)" 
+                }} 
+              />
               <span
                 className="absolute top-2 right-2 px-2 py-0.5 uppercase text-[9px]"
                 style={{
@@ -170,9 +177,10 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
               <div className="flex justify-end">
                 <span
                   style={{
-                    fontSize: "20px",
+                    fontSize: "24px",
                     color: "var(--accent-neon)",
-                    fontWeight: "900"
+                    fontWeight: "900",
+                    lineHeight: "1"
                   }}
                 >
                   ↓
@@ -281,12 +289,13 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: typeof other
               <div className="flex justify-start">
                 <span
                   style={{
-                    fontSize: "20px",
+                    fontSize: "24px",
                     color: "var(--accent-neon)",
-                    fontWeight: "900"
+                    fontWeight: "900",
+                    lineHeight: "1"
                   }}
                 >
-                  ←
+                  ↑
                 </span>
               </div>
             </div>

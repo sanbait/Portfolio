@@ -84,7 +84,7 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.95, y: 20 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-7xl max-h-[95vh] overflow-auto"
+        className="relative w-full max-w-7xl max-h-[95vh] overflow-hidden"
         style={{
           backgroundColor: "var(--bg-primary)",
           border: "2px solid var(--accent-neon)",
@@ -104,146 +104,149 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
           <X size={20} />
         </button>
 
-        {/* Top section: 2-column like reference */}
-        <div className="p-6 md:p-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6">
-            {/* LEFT column: Key Visual + Preview strip */}
-            <div className="flex flex-col gap-2">
-              {/* Main visual - video or image */}
-              <div className="relative w-full aspect-video overflow-hidden bg-black/50" style={{ border: "1px solid var(--border-default)" }}>
-                {c.videoUrl && selectedPreview === -1 ? (
-                  <iframe
-                    src={c.videoUrl}
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title={c.title}
-                  />
-                ) : (
-                  <ImageWithFallback src={previewImages[selectedPreview >= 0 ? selectedPreview : 0]} alt={c.title} className="w-full h-full object-contain" />
-                )}
-              </div>
-
-              {/* Preview thumbnails strip */}
-              <div className={`grid gap-2 ${previewImages.length === 3 ? 'grid-cols-3' : 'grid-cols-4'}`}>
-                {c.videoUrl && (
-                  <button
-                    key="video"
-                    onClick={() => setSelectedPreview(-1)}
-                    className="relative w-full aspect-video overflow-hidden transition-all duration-300 bg-black/50 flex items-center justify-center"
-                    style={{
-                      border: selectedPreview === -1 ? "1px solid var(--accent-neon)" : "1px solid var(--border-default)",
-                      opacity: selectedPreview === -1 ? 1 : 0.6,
-                    }}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--accent-neon)" }}>
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                    {selectedPreview === -1 && (
-                      <div className="absolute inset-0 shadow-[inset_0_0_8px_rgba(204,255,0,0.3)] pointer-events-none" />
-                    )}
-                  </button>
-                )}
-                {previewImages.slice(0, c.videoUrl ? 3 : 4).map((img, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setSelectedPreview(idx)}
-                    className="relative w-full aspect-video overflow-hidden transition-all duration-300 bg-black/50"
-                    style={{
-                      border: selectedPreview === idx ? "1px solid var(--accent-neon)" : "1px solid var(--border-default)",
-                      opacity: selectedPreview === idx ? 1 : 0.6,
-                    }}
-                  >
-                    <ImageWithFallback src={img} alt={`Preview ${idx + 1}`} className="w-full h-full object-contain" />
-                    {selectedPreview === idx && (
-                      <div className="absolute inset-0 shadow-[inset_0_0_8px_rgba(204,255,0,0.3)] pointer-events-none" />
-                    )}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* RIGHT column: Title + Passport */}
-            <div className="flex flex-col bg-[#0a0a0f] h-full" style={{ border: "1px solid var(--border-default)" }}>
-              {/* Top Box: Title */}
-              <div className="p-6 min-h-[110px] flex items-center pr-12" style={{ borderBottom: "1px solid var(--border-default)" }}>
-                <h2 className="text-lg md:text-xl font-bold uppercase tracking-wide leading-snug" style={{ color: "var(--text-primary)", fontFamily: "var(--title-font, 'Syne', sans-serif)" }}>
-                  {c.title}
-                </h2>
-              </div>
-
-              {/* Bottom Box: Passport */}
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-[10px] md:text-xs uppercase tracking-[0.2em] mb-4" style={{ color: "var(--text-secondary)", fontFamily: "var(--body-font, 'Space Grotesk', monospace)" }}>
-                  ПАСПОРТ ПРОЕКТА
-                </h3>
-                
-                <div className="w-full mb-6" style={{ borderBottom: "1px dashed var(--border-default)" }}></div>
-
-                <div className="flex flex-col gap-5 flex-1" style={{ fontFamily: "var(--body-font, 'Space Grotesk', monospace)", fontSize: "13px" }}>
-                  {/* Genre */}
-                  {c.genre && (
-                    <div className="flex justify-between items-center gap-4">
-                      <span style={{ color: "var(--text-secondary)" }}>Жанр</span>
-                      <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.genre}</span>
-                    </div>
+        <div className="case-modal-scroll max-h-[95vh] overflow-auto">
+          {/* Top section: 2-column like reference */}
+          <div className="p-6 md:p-10">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6">
+              {/* LEFT column: Key Visual + Preview strip */}
+              <div className="flex flex-col gap-2">
+                {/* Main visual - video or image */}
+                <div className="relative w-full aspect-video overflow-hidden bg-black/50" style={{ border: "1px solid var(--border-default)" }}>
+                  {c.videoUrl && selectedPreview === -1 ? (
+                    <iframe
+                      src={c.videoUrl}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title={c.title}
+                    />
+                  ) : (
+                    <ImageWithFallback src={previewImages[selectedPreview >= 0 ? selectedPreview : 0]} alt={c.title} className="w-full h-full object-contain" />
                   )}
+                </div>
 
-                  {/* Platform */}
-                  {c.availableOn && (
-                    <div className="flex justify-between items-center gap-4">
-                      <span style={{ color: "var(--text-secondary)" }}>Платформа</span>
-                      <div className="flex items-center gap-4 text-white">
-                        {/* Show one phone icon if either apple or android is present */}
-                        {(c.availableOn.includes("apple") || c.availableOn.includes("android")) && (
-                          <div className="flex items-center justify-center">
-                            <Smartphone size={18} />
-                          </div>
-                        )}
-                        {/* Show other platforms */}
-                        {c.availableOn.filter(p => p !== "apple" && p !== "android").map((platform) => (
-                          <div key={platform} className="flex items-center justify-center">
-                            {platform === "telegram" && <Send size={18} className="translate-y-[1px]" />}
-                            {platform === "line" && <MessageCircle size={18} className="text-[#06C755]" />}
-                            {platform === "pc" && <Monitor size={18} />}
-                            {platform === "web" && <Globe size={18} />}
-                          </div>
-                        ))}
+                {/* Preview thumbnails strip */}
+                <div className={`grid gap-2 ${previewImages.length === 3 ? 'grid-cols-3' : 'grid-cols-4'}`}>
+                  {c.videoUrl && (
+                    <button
+                      key="video"
+                      onClick={() => setSelectedPreview(-1)}
+                      className="relative w-full aspect-video overflow-hidden transition-all duration-300 bg-black/50 flex items-center justify-center"
+                      style={{
+                        border: selectedPreview === -1 ? "1px solid var(--accent-neon)" : "1px solid var(--border-default)",
+                        opacity: selectedPreview === -1 ? 1 : 0.6,
+                      }}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--accent-neon)" }}>
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                      {selectedPreview === -1 && (
+                        <div className="absolute inset-0 shadow-[inset_0_0_8px_rgba(204,255,0,0.3)] pointer-events-none" />
+                      )}
+                    </button>
+                  )}
+                  {previewImages.slice(0, c.videoUrl ? 3 : 4).map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedPreview(idx)}
+                      className="relative w-full aspect-video overflow-hidden transition-all duration-300 bg-black/50"
+                      style={{
+                        border: selectedPreview === idx ? "1px solid var(--accent-neon)" : "1px solid var(--border-default)",
+                        opacity: selectedPreview === idx ? 1 : 0.6,
+                      }}
+                    >
+                      <ImageWithFallback src={img} alt={`Preview ${idx + 1}`} className="w-full h-full object-contain" />
+                      {selectedPreview === idx && (
+                        <div className="absolute inset-0 shadow-[inset_0_0_8px_rgba(204,255,0,0.3)] pointer-events-none" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* RIGHT column: Title + Passport */}
+              <div className="flex flex-col bg-[#0a0a0f] h-full" style={{ border: "1px solid var(--border-default)" }}>
+                {/* Top Box: Title */}
+                <div className="p-6 min-h-[110px] flex items-center pr-12" style={{ borderBottom: "1px solid var(--border-default)" }}>
+                  <h2 className="text-lg md:text-xl font-bold uppercase tracking-wide leading-snug" style={{ color: "var(--text-primary)", fontFamily: "var(--title-font, 'Syne', sans-serif)" }}>
+                    {c.title}
+                  </h2>
+                </div>
+
+                {/* Bottom Box: Passport */}
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="text-[10px] md:text-xs uppercase tracking-[0.2em] mb-4" style={{ color: "var(--text-secondary)", fontFamily: "var(--body-font, 'Space Grotesk', monospace)" }}>
+                    ПАСПОРТ ПРОЕКТА
+                  </h3>
+                  
+                  <div className="w-full mb-6" style={{ borderBottom: "1px dashed var(--border-default)" }}></div>
+
+                  <div className="flex flex-col gap-5 flex-1" style={{ fontFamily: "var(--body-font, 'Space Grotesk', monospace)", fontSize: "13px" }}>
+                    {/* Genre */}
+                    {c.genre && (
+                      <div className="flex justify-between items-center gap-4">
+                        <span style={{ color: "var(--text-secondary)" }}>Жанр</span>
+                        <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.genre}</span>
                       </div>
-                    </div>
-                  )}
+                    )}
 
-                  {/* Monetization */}
-                  {c.monetization && (
-                    <div className="flex justify-between items-center gap-4">
-                      <span style={{ color: "var(--text-secondary)" }}>Монетизация</span>
-                      <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.monetization}</span>
-                    </div>
-                  )}
+                    {/* Platform */}
+                    {c.availableOn && (
+                      <div className="flex justify-between items-center gap-4">
+                        <span style={{ color: "var(--text-secondary)" }}>Платформа</span>
+                        <div className="flex items-center gap-4 text-white">
+                          {/* Show one phone icon if either apple or android is present */}
+                          {(c.availableOn.includes("apple") || c.availableOn.includes("android")) && (
+                            <div className="flex items-center justify-center">
+                              <Smartphone size={18} />
+                            </div>
+                          )}
+                          {/* Show other platforms */}
+                          {c.availableOn.filter(p => p !== "apple" && p !== "android").map((platform) => (
+                            <div key={platform} className="flex items-center justify-center">
+                              {platform === "telegram" && <Send size={18} className="translate-y-[1px]" />}
+                              {platform === "line" && <MessageCircle size={18} className="text-[#06C755]" />}
+                              {platform === "pc" && <Monitor size={18} />}
+                              {platform === "web" && <Globe size={18} />}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
-                  {/* Company */}
-                  {c.company && (
-                    <div className="flex justify-between items-center gap-4">
-                      <span style={{ color: "var(--text-secondary)" }}>Компания</span>
-                      <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.company}</span>
-                    </div>
-                  )}
+                    {/* Monetization */}
+                    {c.monetization && (
+                      <div className="flex justify-between items-center gap-4">
+                        <span style={{ color: "var(--text-secondary)" }}>Монетизация</span>
+                        <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.monetization}</span>
+                      </div>
+                    )}
 
-                  {/* Role */}
-                  {c.role && (
-                    <div className="flex justify-between items-center gap-4">
-                      <span style={{ color: "var(--text-secondary)" }}>Роль</span>
-                      <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.role}</span>
-                    </div>
-                  )}
+                    {/* Company */}
+                    {c.company && (
+                      <div className="flex justify-between items-center gap-4">
+                        <span style={{ color: "var(--text-secondary)" }}>Компания</span>
+                        <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.company}</span>
+                      </div>
+                    )}
+
+                    {/* Role */}
+                    {c.role && (
+                      <div className="flex justify-between items-center gap-4">
+                        <span style={{ color: "var(--text-secondary)" }}>Роль</span>
+                        <span className="text-right" style={{ color: "var(--text-primary)" }}>{c.role}</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Content sections - full width below */}
-        <div className="px-8 pb-8 space-y-8">
+          <div className="mx-8 mb-8" style={{ borderTop: "1px solid var(--accent-neon)", opacity: 0.35 }} />
+
+          {/* Content sections - full width below */}
+          <div className="px-8 pb-8 space-y-8">
           {/* Overview */}
           {c.about && (
             <div>
@@ -523,6 +526,7 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
               </div>
             </div>
           )}
+          </div>
 
         </div>
       </motion.div>

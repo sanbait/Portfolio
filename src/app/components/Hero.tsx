@@ -20,8 +20,6 @@ export function Hero() {
     "REWARD SYSTEMS",
     "SOCIAL MECHANICS",
     "TMA",
-    "WEB3",
-    "GAMEFI",
     "MMORPG",
     "MOBILE F2P",
     "PC / STEAM",

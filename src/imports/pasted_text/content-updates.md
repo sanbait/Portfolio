@@ -170,7 +170,6 @@ Telegram Mini Apps
 Mobile F2P
 PC / Steam
 MMORPG
-Web3 / GameFi
 Corporate Gamification
 Колонка 4
 

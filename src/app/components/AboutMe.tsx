@@ -29,11 +29,11 @@ export function AboutMe() {
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           {/* Left: Portrait */}
           <FadeInSection>
-            <div className="relative flex-shrink-0">
-              <div className="relative w-full max-w-[420px] aspect-[420/520] md:w-[420px] md:h-[520px]">
+            <div className="relative flex-shrink-0 w-[280px] h-[347px] mx-auto sm:w-[360px] sm:h-[446px] lg:w-[420px] lg:h-[520px] lg:mx-0 mb-10 lg:mb-0">
+              <div className="relative w-full h-full">
                 <div
                   className="absolute inset-0 overflow-hidden"
-                  style={{ border: "1px solid var(--border-default)" }}
+                  style={{ border: "1px solid var(--border-default)", backgroundColor: "rgba(0, 0, 0, 0.25)" }}
                 >
                   <ImageWithFallback
                     src={portrait}

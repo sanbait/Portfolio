@@ -82,17 +82,16 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <h1
-              className="mb-10 whitespace-nowrap"
+              className="mb-10 text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[var(--h1-size)]"
               style={{
                 color: "var(--text-primary)",
                 fontFamily: "var(--h1-font)",
                 fontWeight: "var(--h1-weight)",
-                fontSize: "var(--h1-size)",
-                lineHeight: "var(--h1-lh)",
-                letterSpacing: "var(--h1-ls)",
+                lineHeight: "1.1",
+                letterSpacing: "0.02em",
               }}
             >
-              АЛЕКСАНДР БАТУРИН
+              АЛЕКСАНДР<br />БАТУРИН
             </h1>
           </motion.div>
 

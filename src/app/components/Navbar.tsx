@@ -45,8 +45,9 @@ export function Navbar() {
       >
         {/* Logo */}
         <button
+          type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="flex items-center gap-2 group"
+          className="flex items-center gap-2 group cursor-pointer"
         >
           <span
             className="uppercase"
@@ -66,9 +67,10 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <button
+              type="button"
               key={link.href}
               onClick={() => handleClick(link.href)}
-              className="uppercase transition-all text-[#9ca3af] hover:text-[#CCFF00]"
+              className="uppercase transition-all text-[#9ca3af] hover:text-[#CCFF00] cursor-pointer"
               style={{
                 fontFamily: "var(--label-font)",
                 fontWeight: "600",
@@ -110,7 +112,8 @@ export function Navbar() {
             CV
           </a>
           <button
-            className="transition-colors"
+            type="button"
+            className="transition-colors cursor-pointer"
             onClick={() => setOpen(!open)}
             style={{ color: open ? "var(--accent-neon)" : "var(--text-secondary)" }}
           >
@@ -136,9 +139,10 @@ export function Navbar() {
             <div className="flex flex-col px-8 py-6 gap-4">
               {links.map((link) => (
                 <button
+                  type="button"
                   key={link.href}
                   onClick={() => handleClick(link.href)}
-                  className="text-left uppercase transition-colors"
+                  className="text-left uppercase transition-colors cursor-pointer"
                   style={{
                     fontFamily: "var(--label-font)",
                     fontWeight: "var(--label-weight)",
@@ -150,19 +154,6 @@ export function Navbar() {
                   {link.label}
                 </button>
               ))}
-              <a
-                href={CV_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="cv-button uppercase"
-                style={{
-                  padding: "14px 18px",
-                  width: "fit-content",
-                  fontWeight: "700",
-                }}
-              >
-                CV
-              </a>
             </div>
           </motion.div>
         )}

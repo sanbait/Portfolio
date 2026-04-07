@@ -193,7 +193,7 @@ export function Strength() {
                   <motion.div
                     animate={{ x: row.direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"] }}
                     transition={{ duration: 135, repeat: Infinity, ease: "linear" }}
-                    className="flex gap-4 whitespace-nowrap items-center px-4"
+                    className="flex gap-8 whitespace-nowrap items-center px-4"
                     style={{
                       fontFamily: "var(--marquee-font)",
                       fontWeight: "var(--marquee-weight)",
@@ -201,10 +201,9 @@ export function Strength() {
                       letterSpacing: "var(--marquee-ls)",
                     }}
                   >
-                    {[...row.items, ...row.items].map((item, i) => (
-                      <span key={i} className="flex items-center gap-4" style={{ color: "var(--accent-neon)" }}>
-                        {item}
-                        <span aria-hidden="true">•</span>
+                    {[...row.items, ...row.items, ...row.items, ...row.items].map((item, i) => (
+                      <span key={`${idx}-${i}`} className="flex items-center gap-8" style={{ color: "var(--accent-neon)" }}>
+                        {item} <span aria-hidden="true">•</span>
                       </span>
                     ))}
                   </motion.div>

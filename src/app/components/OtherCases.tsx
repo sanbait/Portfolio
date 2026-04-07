@@ -125,7 +125,7 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: OtherCase; d
   return (
     <FadeInSection delay={delay}>
       <div
-        className="relative h-[420px] cursor-pointer perspective-1000"
+        className="relative cursor-pointer perspective-1000 mx-auto w-full max-w-[340px] sm:max-w-none h-[340px] md:h-[420px]"
         onClick={onFlip}
       >
         <motion.div
@@ -146,7 +146,7 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: OtherCase; d
             onMouseLeave={(e) => e.currentTarget.style.borderColor = "var(--border-default)"}
           >
             {/* Image */}
-            <div className="relative h-48 flex-shrink-0 overflow-hidden">
+            <div className="relative h-40 md:h-48 flex-shrink-0 overflow-hidden">
               <ImageWithFallback
                 src={project.image}
                 alt={project.title}
@@ -160,7 +160,7 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: OtherCase; d
                 }} 
               />
               <span
-                className="foil-content absolute top-2 right-2 px-2 py-0.5 uppercase text-[9px]"
+                className="foil-content absolute top-2 right-2 px-2 py-0.5 uppercase text-[8px] md:text-[9px]"
                 style={{
                   backgroundColor: "var(--accent-neon)",
                   color: "var(--accent-neon-dark)",
@@ -174,35 +174,28 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: OtherCase; d
             </div>
 
             {/* Content */}
-            <div className="foil-content foil-panel p-4 flex flex-col h-full">
+            <div className="foil-content foil-panel p-3 md:p-4 flex flex-col h-full">
               {/* Spacer to push content down */}
               <div className="flex-1" />
               
               {/* Role */}
-              <p className="text-[12px] uppercase tracking-wider mb-2" style={{ color: "var(--accent-neon)", fontWeight: 800 }}>
+              <p className="text-[11px] md:text-[12px] uppercase tracking-wider mb-2" style={{ color: "var(--accent-neon)", fontWeight: 800 }}>
                 {project.role}
               </p>
               
               {/* Title */}
-              <h3 className="text-lg font-medium mb-1" style={{ color: "var(--text-primary)" }}>
+              <h3 className="text-base md:text-lg font-medium mb-1" style={{ color: "var(--text-primary)" }}>
                 {project.title}
               </h3>
               
               {/* Description */}
-              <p className="text-xs leading-relaxed mb-3" style={{ color: "var(--text-secondary)" }}>
+              <p className="text-[11px] md:text-xs leading-relaxed mb-3" style={{ color: "var(--text-secondary)" }}>
                 {project.description}
               </p>
 
               {/* Arrow at bottom */}
               <div className="flex justify-end">
-                <span
-                  style={{
-                    fontSize: "24px",
-                    color: "var(--accent-neon)",
-                    fontWeight: "900",
-                    lineHeight: "1"
-                  }}
-                >
+                <span className="text-[20px] md:text-[24px]" style={{ color: "var(--accent-neon)", fontWeight: "900", lineHeight: "1" }}>
                   ↓
                 </span>
               </div>
@@ -276,7 +269,7 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: OtherCase; d
             <div className="p-4 flex-shrink-0">
               <div className="mb-3">
                 <p
-                  className="mb-2 uppercase text-[10px]"
+                  className="mb-2 uppercase text-[9px] md:text-[10px]"
                   style={{
                     fontFamily: "var(--label-font)",
                     fontWeight: "var(--label-weight)",
@@ -305,14 +298,7 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: OtherCase; d
               </div>
               {/* Back link */}
               <div className="flex justify-start">
-                <span
-                  style={{
-                    fontSize: "24px",
-                    color: "var(--accent-neon)",
-                    fontWeight: "900",
-                    lineHeight: "1"
-                  }}
-                >
+                <span className="text-[20px] md:text-[24px]" style={{ color: "var(--accent-neon)", fontWeight: "900", lineHeight: "1" }}>
                   ↑
                 </span>
               </div>

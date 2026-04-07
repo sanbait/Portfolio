@@ -21,9 +21,16 @@ export function Navbar() {
   }, []);
 
   const handleClick = (href: string) => {
-    setOpen(false);
     const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    const scroll = () => {
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    if (open) {
+      setOpen(false);
+      setTimeout(scroll, 300);
+    } else {
+      scroll();
+    }
   };
 
   return (
@@ -138,11 +145,14 @@ export function Navbar() {
           >
             <div className="flex flex-col px-8 py-6 gap-4">
               {links.map((link) => (
-                <button
-                  type="button"
+                <a
                   key={link.href}
-                  onClick={() => handleClick(link.href)}
-                  className="text-left uppercase transition-colors cursor-pointer"
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClick(link.href);
+                  }}
+                  className="text-left uppercase transition-colors cursor-pointer hover:text-[#CCFF00]"
                   style={{
                     fontFamily: "var(--label-font)",
                     fontWeight: "var(--label-weight)",
@@ -152,7 +162,7 @@ export function Navbar() {
                   }}
                 >
                   {link.label}
-                </button>
+                </a>
               ))}
             </div>
           </motion.div>

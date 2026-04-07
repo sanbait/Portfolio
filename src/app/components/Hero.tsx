@@ -171,7 +171,7 @@ export function Hero() {
         <div className="flex w-fit items-center h-full">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 135, repeat: Infinity, ease: "linear" }}
             className="flex gap-8 whitespace-nowrap items-center px-4"
             style={{
               fontFamily: "var(--marquee-font)",

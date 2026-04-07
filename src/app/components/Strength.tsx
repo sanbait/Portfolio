@@ -35,10 +35,56 @@ export function Strength() {
     },
   ];
 
+  const row1 = [
+    "SYSTEMS & ECONOMY",
+    "SYSTEM DESIGN",
+    "GAME ECONOMY",
+    "MATH MODELING",
+    "TOKENOMICS",
+    "CORE LOOP",
+    "META LOOP",
+    "PROGRESSION",
+    "SOCIAL SYSTEMS",
+    "PLAYER-DRIVEN ECONOMY",
+    "F2P / IAP BALANCE",
+  ];
+
+  const row2 = [
+    "PRODUCT & LIVEOPS",
+    "PRODUCT THINKING",
+    "RETENTION",
+    "MONETIZATION",
+    "LIVEOPS",
+    "A/B TESTING",
+    "COHORT ANALYSIS",
+    "BEHAVIORAL ANALYTICS",
+    "ARPU / LTV",
+    "PRODUCT METRICS",
+    "CRISIS PIVOTS",
+  ];
+
+  const row3 = [
+    "TOOLS & EXECUTION",
+    "AI",
+    "VIBE CODING",
+    "LLM",
+    "UNREAL ENGINE 5",
+    "BLUEPRINTS",
+    "MACHINATIONS",
+    "EXCEL",
+    "GOOGLE SHEETS",
+    "AMPLITUDE",
+    "TABLEAU",
+    "FIGMA",
+    "MIRO",
+    "JIRA",
+    "NOTION",
+  ];
+
   return (
     <section 
       id="strength" 
-      className="py-16 px-6 md:px-12" 
+      className="pt-16 pb-0 px-6 md:px-12" 
       style={{ backgroundColor: "var(--accent-neon)" }}
     >
       <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
@@ -113,6 +159,57 @@ export function Strength() {
                   </div>
                 </div>
               </FadeInSection>
+            ))}
+          </div>
+
+          <div
+            className="mt-12 overflow-hidden"
+            style={{
+              width: "100vw",
+              marginLeft: "calc(50% - 50vw)",
+              marginRight: "calc(50% - 50vw)",
+              borderTop: "1px solid rgba(204, 255, 0, 0.2)",
+              borderBottom: "1px solid rgba(204, 255, 0, 0.2)",
+              backgroundColor: "rgba(2, 3, 0, 0.985)",
+              backgroundImage:
+                "radial-gradient(ellipse 1100px 320px at 18% 50%, rgba(204,255,0,0.028), transparent 70%), radial-gradient(ellipse 1100px 320px at 82% 50%, rgba(204,255,0,0.022), transparent 70%), linear-gradient(rgba(204,255,0,0.016) 1px, transparent 1px), linear-gradient(90deg, rgba(204,255,0,0.016) 1px, transparent 1px)",
+              backgroundSize: "60px 60px",
+            }}
+          >
+            {[
+              { items: row1, direction: "left", topBorder: false },
+              { items: row2, direction: "right", topBorder: true },
+              { items: row3, direction: "left", topBorder: true },
+            ].map((row, idx) => (
+              <div
+                key={idx}
+                className="relative overflow-hidden"
+                style={{
+                  height: "56px",
+                  borderTop: row.topBorder ? "1px solid rgba(204, 255, 0, 0.2)" : "none",
+                }}
+              >
+                <div className="flex w-fit items-center h-full">
+                  <motion.div
+                    animate={{ x: row.direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"] }}
+                    transition={{ duration: 135, repeat: Infinity, ease: "linear" }}
+                    className="flex gap-4 whitespace-nowrap items-center px-4"
+                    style={{
+                      fontFamily: "var(--marquee-font)",
+                      fontWeight: "var(--marquee-weight)",
+                      fontSize: "var(--marquee-size)",
+                      letterSpacing: "var(--marquee-ls)",
+                    }}
+                  >
+                    {[...row.items, ...row.items].map((item, i) => (
+                      <span key={i} className="flex items-center gap-4" style={{ color: "var(--accent-neon)" }}>
+                        {item}
+                        <span aria-hidden="true">•</span>
+                      </span>
+                    ))}
+                  </motion.div>
+                </div>
+              </div>
             ))}
           </div>
         </FadeInSection>

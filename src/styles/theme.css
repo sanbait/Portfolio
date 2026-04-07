@@ -11,6 +11,16 @@
   100% { background-position: 64px 64px; }
 }
 
+@keyframes skill-marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes skill-marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
 :root {
   /* === COLORS === */
   /* Backgrounds */
@@ -210,6 +220,95 @@
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.75);
+  }
+
+  .skill-marquee {
+    border: 2px solid rgba(0, 0, 0, 0.45);
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.90);
+    background-image: radial-gradient(rgba(204, 255, 0, 0.12) 1px, transparent 1px);
+    background-size: 28px 28px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+  }
+
+  .skill-marquee-row {
+    position: relative;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(204, 255, 0, 0.18);
+  }
+
+  .skill-marquee-row:first-child {
+    border-top: none;
+  }
+
+  .skill-marquee-viewport {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .skill-marquee-viewport::before,
+  .skill-marquee-viewport::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 88px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .skill-marquee-viewport::before {
+    left: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0));
+  }
+
+  .skill-marquee-viewport::after {
+    right: 0;
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0));
+  }
+
+  .skill-marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation-duration: var(--marquee-duration, 32s);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .skill-marquee-track--left {
+    animation-name: skill-marquee-left;
+  }
+
+  .skill-marquee-track--right {
+    animation-name: skill-marquee-right;
+  }
+
+  .skill-marquee-content {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    white-space: nowrap;
+    font-family: var(--marquee-font);
+    font-weight: 650;
+    font-size: var(--marquee-size);
+    line-height: var(--marquee-lh);
+    letter-spacing: var(--marquee-ls);
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skill-marquee-track {
+      animation: none;
+      transform: translateX(0);
+    }
   }
 
   h2 {

@@ -69,7 +69,7 @@ export function Hero() {
                 color: "var(--accent-neon)",
               }}
             >
-              SENIOR GAME DESIGNER • DATA-DRIVEN • ECONOMY DESIGN
+              CV: baturin GD
             </p>
           </motion.div>
 

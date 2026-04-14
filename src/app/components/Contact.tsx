@@ -101,11 +101,15 @@ export function Contact() {
               href={CV_URL}
               target="_blank"
               rel="noreferrer"
-              whileHover={{ backgroundColor: "transparent", color: "var(--accent-neon)" }}
+              whileHover={{ backgroundColor: "var(--accent-neon)", color: "#000000" }}
               whileTap={{ scale: 0.98 }}
-              className="cv-button flex items-center gap-2 cursor-pointer font-bold uppercase tracking-widest"
+              className="flex items-center gap-2 cursor-pointer font-bold uppercase tracking-widest"
               style={{
                 padding: "25px 65px",
+                backgroundColor: "transparent",
+                color: "#FFFFFF",
+                border: "1px solid var(--accent-neon)",
+                textDecoration: "none",
                 borderRadius: "0",
                 fontSize: "18px",
                 transition: "none"

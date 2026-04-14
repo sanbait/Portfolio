@@ -69,7 +69,7 @@ export function Hero() {
                 color: "var(--accent-neon)",
               }}
             >
-              CV: baturin GD
+              SENIOR GAME DESIGNER • DATA-DRIVEN • ECONOMY DESIGN
             </p>
           </motion.div>
 
@@ -80,16 +80,19 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <h1
-              className="mb-10 text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[var(--h1-size)]"
+              className="mb-10 text-[clamp(56px,8vw,88px)]"
               style={{
                 color: "var(--text-primary)",
                 fontFamily: "var(--h1-font)",
                 fontWeight: "var(--h1-weight)",
                 lineHeight: "1.1",
-                letterSpacing: "0.02em",
+                letterSpacing: "0",
               }}
             >
-              АЛЕКСАНДР<br />БАТУРИН
+              <span className="md:hidden">
+                АЛЕКСАНДР<br />БАТУРИН
+              </span>
+              <span className="hidden md:inline whitespace-nowrap">АЛЕКСАНДР БАТУРИН</span>
             </h1>
           </motion.div>
 
@@ -97,7 +100,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="mb-12 max-w-2xl mx-auto"
+            className="mb-12 max-w-4xl mx-auto"
             style={{
               fontFamily: "var(--body-font)",
               fontSize: "var(--body-size)",

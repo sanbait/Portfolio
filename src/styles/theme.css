@@ -21,6 +21,12 @@
   100% { transform: translateX(0); }
 }
 
+@keyframes metric-border-sheen {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 :root {
   /* === COLORS === */
   /* Backgrounds */
@@ -364,6 +370,54 @@
   .cv-button:focus-visible {
     outline: none;
     box-shadow: 0 0 0 3px rgba(204, 255, 0, 0.25);
+  }
+
+  .metric-card {
+    position: relative;
+  }
+
+  .metric-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    pointer-events: none;
+    background-image: linear-gradient(
+      90deg,
+      rgba(204, 255, 0, 0.15),
+      rgba(255, 255, 255, 0.35),
+      rgba(204, 255, 0, 0.9),
+      rgba(255, 255, 255, 0.35),
+      rgba(204, 255, 0, 0.15)
+    );
+    background-size: 280% 280%;
+    animation: metric-border-sheen 3.6s linear infinite;
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+  }
+
+  .metric-card__inner {
+    position: relative;
+    z-index: 1;
+    padding: 18px;
+    background-color: rgba(0, 0, 0, 0.22);
+    box-shadow: 0 0 0 1px rgba(204, 255, 0, 0.06), 0 22px 70px rgba(0, 0, 0, 0.42);
+  }
+
+  .metric-card__text {
+    font-family: var(--h3-font);
+    font-weight: 800;
+    font-size: var(--h3-size);
+    line-height: var(--h3-lh);
+    letter-spacing: var(--h3-ls);
+    color: var(--text-primary);
+    margin: 0;
   }
 
   .foil-card {

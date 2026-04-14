@@ -19,6 +19,14 @@ function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; del
 }
 
 export function AboutMe() {
+  const topMetrics = [
+    "Реализовано свыше 20 проектов",
+    "Наилучший ARPPU 27+",
+    "Лучший R30 -25%",
+    "Рост LTV + 25%",
+    "Stikness rate ~ 47%",
+  ];
+
   return (
     <section
       id="about"
@@ -161,6 +169,23 @@ export function AboutMe() {
             </FadeInSection>
           </div>
         </div>
+
+        <FadeInSection delay={0.35}>
+          <div className="mt-12 pt-8" style={{ borderTop: "1px solid var(--border-default)" }}>
+            <h3 className="mb-6" style={{ color: "var(--accent-neon)" }}>
+              ТОП метрик:
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              {topMetrics.map((text) => (
+                <div key={text} className="metric-card">
+                  <div className="metric-card__inner">
+                    <h3 className="metric-card__text">{text}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeInSection>
       </div>
     </section>
   );

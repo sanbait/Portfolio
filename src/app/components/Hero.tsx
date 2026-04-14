@@ -80,7 +80,7 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <h1
-              className="mb-10 text-[clamp(56px,8vw,88px)]"
+              className="mb-10 text-[clamp(56px,7.5vw,104px)]"
               style={{
                 color: "var(--text-primary)",
                 fontFamily: "var(--h1-font)",

@@ -389,11 +389,9 @@ export function CaseStudies() {
                   </h3>
 
                   <p
-                    className="mb-4 flex-1 line-clamp-2"
+                    className="mb-4 flex-1 line-clamp-2 text-sm"
                     style={{
-                      fontFamily: "var(--secondary-font)",
-                      fontSize: "var(--secondary-size)",
-                      lineHeight: "var(--secondary-lh)",
+                      fontFamily: "var(--body-font)",
                       color: "var(--text-secondary)",
                     }}
                   >

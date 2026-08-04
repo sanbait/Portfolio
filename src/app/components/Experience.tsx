@@ -62,7 +62,7 @@ export function Experience() {
           {/* Left: Experience */}
           <div>
             <FadeInSection>
-              <h2 className="screen-title" style={{ color: "var(--text-primary)", marginBottom: "var(--content-gap)" }}>
+              <h2 style={{ color: "var(--text-primary)", marginBottom: "48px" }}>
                 ОПЫТ РАБОТЫ
               </h2>
             </FadeInSection>
@@ -92,9 +92,9 @@ export function Experience() {
                       >
                         {exp.period}
                       </span>
-                      <h4 style={{ color: "var(--text-primary)" }}>
+                      <h3 style={{ color: "var(--text-primary)", fontSize: "1.25rem", fontWeight: "700" }}>
                         {exp.role}
-                      </h4>
+                      </h3>
                       <p
                         className="uppercase"
                         style={{
@@ -117,7 +117,7 @@ export function Experience() {
           {/* Right: Skills Chart */}
           <div className="h-full">
             <FadeInSection delay={0.2}>
-              <h2 className="screen-title" style={{ color: "var(--text-primary)", marginBottom: "var(--content-gap)" }}>
+              <h2 style={{ color: "var(--text-primary)", marginBottom: "48px" }}>
                 НАВЫКИ
               </h2>
               <div className="w-full h-[500px] flex items-center justify-center rounded-xl overflow-hidden" 

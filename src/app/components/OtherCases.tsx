@@ -179,35 +179,17 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: OtherCase; d
               <div className="flex-1" />
               
               {/* Role */}
-              <p
-                className="mb-2 uppercase"
-                style={{
-                  fontFamily: "var(--label-font)",
-                  fontWeight: "var(--label-weight)",
-                  fontSize: "var(--label-size)",
-                  lineHeight: "var(--label-lh)",
-                  letterSpacing: "var(--label-ls)",
-                  color: "var(--accent-neon)",
-                }}
-              >
+              <p className="text-[11px] md:text-[12px] uppercase tracking-wider mb-2" style={{ color: "var(--accent-neon)", fontWeight: 800 }}>
                 {project.role}
               </p>
               
               {/* Title */}
-              <h4 className="mb-1" style={{ color: "var(--text-primary)" }}>
+              <h3 className="text-base md:text-lg font-medium mb-1" style={{ color: "var(--text-primary)" }}>
                 {project.title}
-              </h4>
+              </h3>
               
               {/* Description */}
-              <p
-                className="mb-3"
-                style={{
-                  fontFamily: "var(--secondary-font)",
-                  fontSize: "var(--secondary-size)",
-                  lineHeight: "var(--secondary-lh)",
-                  color: "var(--text-secondary)",
-                }}
-              >
+              <p className="text-[11px] md:text-xs leading-relaxed mb-3" style={{ color: "var(--text-secondary)" }}>
                 {project.description}
               </p>
 
@@ -246,10 +228,10 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: OtherCase; d
                   {project.taskLabel ?? "→ ОПИСАНИЕ"}
                 </p>
                 <p
+                  className="text-[11px]"
                   style={{
-                    fontFamily: "var(--secondary-font)",
-                    fontSize: "var(--secondary-size)",
-                    lineHeight: "var(--secondary-lh)",
+                    fontFamily: "var(--body-font)",
+                    lineHeight: "1.45",
                     color: "var(--text-secondary)",
                   }}
                 >
@@ -271,10 +253,10 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: OtherCase; d
                   {project.resultLabel ?? "→ РОЛЬ"}
                 </p>
                 <p
+                  className="text-[11px]"
                   style={{
-                    fontFamily: "var(--secondary-font)",
-                    fontSize: "var(--secondary-size)",
-                    lineHeight: "var(--secondary-lh)",
+                    fontFamily: "var(--body-font)",
+                    lineHeight: "1.45",
                     color: "var(--text-secondary)",
                   }}
                 >
@@ -287,7 +269,7 @@ function FlipCard({ project, delay, isFlipped, onFlip }: { project: OtherCase; d
             <div className="p-4 flex-shrink-0">
               <div className="mb-3">
                 <p
-                  className="mb-2 uppercase"
+                  className="mb-2 uppercase text-[9px] md:text-[10px]"
                   style={{
                     fontFamily: "var(--label-font)",
                     fontWeight: "var(--label-weight)",

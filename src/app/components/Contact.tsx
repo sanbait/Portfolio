@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { Send } from "lucide-react";
 
-const CV_URL = "https://drive.google.com/file/d/1wT8jA07Md2JiAYYC-BVcVsUk2c2dAsUD/view?usp=sharing";
+const CV_URL = "https://drive.google.com/file/d/1CefF2K42lhG9cDMnvd3N90YZkjchYGqL/view?usp=drive_link";
 const TG_URL = "https://t.me/Alexsunpro";
 const EMAIL = "Sanbaititl@gmail.com";
 

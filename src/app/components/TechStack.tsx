@@ -39,10 +39,10 @@ export function TechStack() {
     <section id="expertise" className="py-24 px-6" style={{ backgroundColor: "var(--bg-secondary)" }}>
       <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
         <FadeInSection>
-          <h2 className="screen-title" style={{ color: "var(--text-primary)", marginBottom: "var(--heading-gap)" }}>
+          <h2 style={{ color: "var(--text-primary)" }}>
             ПРОЕКТИРОВАНИЕ ИГРОВЫХ СИСТЕМ
           </h2>
-          <p style={{ color: "var(--text-secondary)", marginBottom: "var(--content-gap)" }}>
+          <p style={{ color: "var(--text-secondary)", marginTop: "0.75rem", marginBottom: "var(--content-gap)" }}>
             Из чего состоит моя работа и какие задачи я решаю на уровне систем, экономики и поведения игроков.
           </p>
         </FadeInSection>
@@ -58,7 +58,16 @@ export function TechStack() {
                   borderRadius: "var(--radius-card)",
                 }}
               >
-                <h3 className="mb-4" style={{ color: "var(--accent-neon)" }}>
+                <h3
+                  className="mb-4"
+                  style={{
+                    fontFamily: "var(--label-font)",
+                    fontWeight: "var(--label-weight)",
+                    fontSize: "var(--label-size)",
+                    letterSpacing: "var(--label-ls)",
+                    color: "var(--accent-neon)",
+                  }}
+                >
                   {card.title}
                 </h3>
                 <p style={{ color: "var(--text-primary)" }}>{card.description}</p>

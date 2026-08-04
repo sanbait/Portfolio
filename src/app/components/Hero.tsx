@@ -27,7 +27,10 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden pt-20" style={{ backgroundColor: "var(--bg-primary)" }}>
+    <section
+      className="relative min-h-screen flex flex-col pt-20"
+      style={{ backgroundColor: "var(--bg-primary)", overflowX: "hidden", overflowY: "visible" }}
+    >
       {/* Abstract gradient background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -59,17 +62,17 @@ export function Hero() {
             className="mb-8"
           >
             <p
-              className="uppercase"
+              className=""
               style={{
                 fontFamily: "var(--label-font)",
                 fontWeight: "800",
-                fontSize: "16px",
+                fontSize: "clamp(16px, 1.6vw, 22px)",
                 lineHeight: "var(--label-lh)",
-                letterSpacing: "0.14em",
+                letterSpacing: "0.12em",
                 color: "var(--accent-neon)",
               }}
             >
-              SENIOR GAME DESIGNER • DATA-DRIVEN • ECONOMY DESIGN
+              Game Designer · Full Cycle · Mobile · TMA · PC · Gamification
             </p>
           </motion.div>
 
@@ -90,33 +93,35 @@ export function Hero() {
               }}
             >
               <span className="md:hidden">
-                АЛЕКСАНДР<br />БАТУРИН
+                Александр<br />Батурин
               </span>
-              <span className="hidden md:inline whitespace-nowrap">АЛЕКСАНДР БАТУРИН</span>
+              <span className="hidden md:inline whitespace-nowrap">Александр Батурин</span>
             </h1>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="mb-12 max-w-4xl mx-auto"
-            style={{
-              fontFamily: "var(--body-font)",
-              fontSize: "var(--body-size)",
-              lineHeight: "var(--body-lh)",
-              color: "var(--text-secondary)",
-            }}
-          >
-            Специализируюсь на экономике, системном дизайне и монетизации. Смотрю на проект целиком: от прогрессии и мотивации игрока до удержания, метрик и роста продукта.
-          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }} className="mb-16 max-w-5xl mx-auto">
+            <div className="flex flex-col gap-6" style={{ paddingTop: "0.3em", paddingBottom: "0.3em" }}>
+              <h2
+                style={{
+                  color: "var(--text-secondary)",
+                  fontFamily: "var(--body-font)",
+                  fontWeight: "400",
+                  fontSize: "clamp(18px, 2.1vw, 30px)",
+                  lineHeight: "1.25",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                Senior Game Designer полного цикла — экономика, системы, баланс. Проектирую механики с влиянием на результат продукта
+              </h2>
+            </div>
+          </motion.div>
 
           {/* CTA buttons - centered */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.5 }}
-            className="flex flex-wrap gap-6 justify-center"
+            className="flex flex-col sm:flex-row sm:flex-nowrap gap-4 justify-center items-center"
           >
             <motion.button
               onClick={scrollToAbout}
@@ -124,8 +129,8 @@ export function Hero() {
               whileTap={{ scale: 0.98 }}
               className="cursor-pointer font-bold uppercase tracking-widest"
               style={{
-                width: "min(420px, 100%)",
-                padding: "24px 64px",
+                width: "min(280px, 100%)",
+                padding: "16px 28px",
                 backgroundColor: "transparent",
                 color: "#FFFFFF",
                 borderRadius: "0",
@@ -135,7 +140,7 @@ export function Hero() {
               }}
               transition={{ duration: 0 }}
             >
-              Кейсы
+              Смотреть кейсы
             </motion.button>
             <motion.button
               onClick={scrollToContact}
@@ -143,8 +148,8 @@ export function Hero() {
               whileTap={{ scale: 0.98 }}
               className="cursor-pointer font-bold uppercase tracking-widest"
               style={{
-                width: "min(420px, 100%)",
-                padding: "24px 64px",
+                width: "min(280px, 100%)",
+                padding: "16px 28px",
                 backgroundColor: "transparent",
                 color: "#FFFFFF",
                 borderRadius: "0",
@@ -154,7 +159,7 @@ export function Hero() {
               }}
               transition={{ duration: 0 }}
             >
-              Контакты
+              Связаться
             </motion.button>
           </motion.div>
         </div>

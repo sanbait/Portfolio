@@ -70,6 +70,13 @@
   --h3-lh: 1.1;
   --h3-ls: -0.01em;
 
+  /* H4 */
+  --h4-font: 'Syne', sans-serif;
+  --h4-weight: 650;
+  --h4-size: 18px;
+  --h4-lh: 1.2;
+  --h4-ls: -0.01em;
+
   /* Body Text */
   --body-font: 'Space Grotesk', sans-serif;
   --body-weight: 400;
@@ -335,6 +342,15 @@
     margin: 0;
   }
 
+  h4 {
+    font-family: var(--h4-font);
+    font-weight: var(--h4-weight);
+    font-size: var(--h4-size);
+    line-height: var(--h4-lh);
+    letter-spacing: var(--h4-ls);
+    margin: 0;
+  }
+
   p {
     margin: 0;
   }
@@ -412,12 +428,16 @@
 
   .metric-card__text {
     font-family: var(--h3-font);
-    font-weight: 800;
+    font-weight: var(--h3-weight);
     font-size: var(--h3-size);
     line-height: var(--h3-lh);
     letter-spacing: var(--h3-ls);
     color: var(--text-primary);
     margin: 0;
+  }
+
+  .metric-card__text > span {
+    display: block;
   }
 
   .foil-card {

@@ -90,28 +90,13 @@ export function Strength() {
       <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
         <FadeInSection>
           <div className="mb-12">
-            <h2
-              className="screen-title screen-title--black"
-              style={{
-                fontFamily: "var(--h2-font)",
-                fontWeight: "900",
-                fontSize: "clamp(2.1rem, 7vw, 5.8rem)",
-                lineHeight: "0.9",
-                color: "#000000",
-                letterSpacing: "-0.04em",
-                textTransform: "uppercase"
-              }}
-            >
+            <h2 className="screen-title screen-title--black uppercase" style={{ color: "#000000" }}>
               ГЕЙМ-АРХИТЕКТОР
             </h2>
             <p
               className="mt-6"
               style={{
                 color: "#000000",
-                fontFamily: "var(--body-font)",
-                fontSize: "1.35rem",
-                lineHeight: "1.55",
-                fontWeight: 750,
                 maxWidth: "none"
               }}
             >
@@ -125,15 +110,7 @@ export function Strength() {
                 <div
                   className="module-card flex flex-col h-full p-7"
                 >
-                  <h3 
-                    className="mb-3 font-black" 
-                    style={{ 
-                      color: "#000000",
-                      fontSize: "1.35rem",
-                      letterSpacing: "0.05em",
-                      textTransform: "uppercase"
-                    }}
-                  >
+                  <h3 className="mb-3 uppercase" style={{ color: "#000000" }}>
                     {item.title}
                   </h3>
                   <div 
@@ -142,11 +119,7 @@ export function Strength() {
                   />
                   <p
                     style={{
-                      fontFamily: "var(--body-font)",
-                      fontSize: "1.15rem",
-                      lineHeight: "1.5",
                       color: "#000000",
-                      fontWeight: "500",
                       flex: 1
                     }}
                   >

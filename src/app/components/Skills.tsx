@@ -85,41 +85,26 @@ function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; del
 
 export function Skills() {
   return (
-    <section id="skills" className="bg-[#0d0d14] py-28 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section id="skills" className="py-24 px-6" style={{ backgroundColor: "var(--bg-primary)" }}>
+      <div style={{ maxWidth: "var(--container-max)", margin: "0 auto" }}>
         <FadeInSection>
-          <p
-            className="text-center text-pink-400/60 tracking-widest uppercase mb-3 text-xs"
-            style={{ fontFamily: "JetBrains Mono, monospace" }}
-          >
-            03 / Навыки
-          </p>
-          <h2
-            className="text-center text-white mb-4"
-            style={{ fontFamily: "Syne, sans-serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: 700 }}
-          >
-            Skill Tree
+          <h2 className="screen-title" style={{ color: "var(--text-primary)", marginBottom: "var(--heading-gap)" }}>
+            НАВЫКИ
           </h2>
-          <p
-            className="text-center text-white/45 max-w-xl mx-auto mb-16"
-            style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "1rem" }}
-          >
-            Прокачанные навыки — потому что хороший продюсер геймификации сам живёт по правилам прогресс-системы.
+          <p className="max-w-2xl" style={{ color: "var(--text-secondary)", marginBottom: "var(--content-gap)" }}>
+            Ключевые компетенции в системном/продуктовом геймдизайне и инструменты, с которыми работаю.
           </p>
         </FadeInSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "var(--card-gap)", marginBottom: "var(--content-gap)" }}>
           {skillGroups.map((group, gi) => (
             <FadeInSection key={group.category} delay={gi * 0.1}>
               <div className={`rounded-2xl border ${group.border} ${group.bgColor} p-6 h-full`}>
                 <div className="flex items-center gap-2 mb-6">
                   <div className={`w-2 h-2 rounded-full ${group.dot}`} />
-                  <h3
-                    className="text-white"
-                    style={{ fontFamily: "Syne, sans-serif", fontWeight: 600, fontSize: "0.95rem" }}
-                  >
+                  <h4 style={{ color: "var(--text-primary)" }}>
                     {group.category}
-                  </h3>
+                  </h4>
                 </div>
 
                 <div className="space-y-5">
@@ -127,14 +112,24 @@ export function Skills() {
                     <div key={skill.name}>
                       <div className="flex justify-between mb-2">
                         <span
-                          className="text-white/70 text-sm"
-                          style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                          style={{
+                            fontFamily: "var(--secondary-font)",
+                            fontSize: "var(--secondary-size)",
+                            lineHeight: "var(--secondary-lh)",
+                            color: "var(--text-secondary)",
+                          }}
                         >
                           {skill.name}
                         </span>
                         <span
-                          className="text-white/35 text-xs"
-                          style={{ fontFamily: "JetBrains Mono, monospace" }}
+                          style={{
+                            fontFamily: "var(--label-font)",
+                            fontWeight: "var(--label-weight)",
+                            fontSize: "var(--label-size)",
+                            lineHeight: "var(--label-lh)",
+                            letterSpacing: "var(--label-ls)",
+                            color: "var(--text-tertiary)",
+                          }}
                         >
                           {skill.level}%
                         </span>
@@ -151,18 +146,19 @@ export function Skills() {
         {/* Tools */}
         <FadeInSection delay={0.2}>
           <div className="rounded-2xl border border-white/8 bg-white/[0.02] p-6 md:p-8">
-            <p
-              className="text-white/40 text-xs tracking-widest uppercase mb-5"
-              style={{ fontFamily: "JetBrains Mono, monospace" }}
-            >
+            <h3 className="mb-5" style={{ color: "var(--text-primary)" }}>
               Инструменты
-            </p>
+            </h3>
             <div className="flex flex-wrap gap-3">
               {tools.map((tool) => (
                 <span
                   key={tool}
-                  className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 hover:border-purple-500/30 transition-all cursor-default text-sm"
-                  style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                  className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 hover:border-purple-500/30 transition-all cursor-default"
+                  style={{
+                    fontFamily: "var(--secondary-font)",
+                    fontSize: "var(--secondary-size)",
+                    lineHeight: "var(--secondary-lh)",
+                  }}
                 >
                   {tool}
                 </span>

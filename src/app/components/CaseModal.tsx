@@ -168,20 +168,37 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
               <div className="flex flex-col bg-[#0a0a0f] h-full" style={{ border: "1px solid var(--border-default)" }}>
                 {/* Top Box: Title */}
                 <div className="p-6 min-h-[110px] flex items-center pr-12" style={{ borderBottom: "1px solid var(--border-default)" }}>
-                  <h2 className="text-lg md:text-xl font-bold uppercase tracking-wide leading-snug" style={{ color: "var(--text-primary)", fontFamily: "var(--title-font, 'Syne', sans-serif)" }}>
+                  <h3 className="uppercase" style={{ color: "var(--text-primary)" }}>
                     {c.title}
-                  </h2>
+                  </h3>
                 </div>
 
                 {/* Bottom Box: Passport */}
                 <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-[10px] md:text-xs uppercase tracking-[0.2em] mb-4" style={{ color: "var(--text-secondary)", fontFamily: "var(--body-font, 'Space Grotesk', monospace)" }}>
+                  <p
+                    className="mb-4 uppercase"
+                    style={{
+                      fontFamily: "var(--label-font)",
+                      fontWeight: "var(--label-weight)",
+                      fontSize: "var(--label-size)",
+                      lineHeight: "var(--label-lh)",
+                      letterSpacing: "var(--label-ls)",
+                      color: "var(--text-secondary)",
+                    }}
+                  >
                     ПАСПОРТ ПРОЕКТА
-                  </h3>
+                  </p>
                   
                   <div className="w-full mb-6" style={{ borderBottom: "1px dashed var(--border-default)" }}></div>
 
-                  <div className="flex flex-col gap-5 flex-1" style={{ fontFamily: "var(--body-font, 'Space Grotesk', monospace)", fontSize: "13px" }}>
+                  <div
+                    className="flex flex-col gap-5 flex-1"
+                    style={{
+                      fontFamily: "var(--secondary-font)",
+                      fontSize: "var(--secondary-size)",
+                      lineHeight: "var(--secondary-lh)",
+                    }}
+                  >
                     {/* Genre */}
                     {c.genre && (
                       <div className="flex justify-between items-center gap-4">
@@ -250,16 +267,7 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
           {/* Overview */}
           {c.about && (
             <div>
-              <h3
-                className="mb-4 uppercase"
-                style={{
-                  fontFamily: "var(--label-font)",
-                  fontWeight: "var(--label-weight)",
-                  fontSize: "var(--label-size)",
-                  letterSpacing: "var(--label-ls)",
-                  color: "var(--accent-neon)",
-                }}
-              >
+              <h3 className="mb-4 uppercase" style={{ color: "var(--accent-neon)" }}>
                 → О проекте
               </h3>
               <p
@@ -278,16 +286,7 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
           {/* Situation / Task */}
           {(c.situation || c.task) && (
             <div>
-              <h3
-                className="mb-4 uppercase"
-                style={{
-                  fontFamily: "var(--label-font)",
-                  fontWeight: "var(--label-weight)",
-                  fontSize: "var(--label-size)",
-                  letterSpacing: "var(--label-ls)",
-                  color: "var(--accent-neon)",
-                }}
-              >
+              <h3 className="mb-4 uppercase" style={{ color: "var(--accent-neon)" }}>
                 → Ситуация / Задача
               </h3>
               <p
@@ -306,16 +305,7 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
           {/* My Role */}
           {c.myRole && c.myRole.length > 0 && (
             <div>
-              <h3
-                className="mb-4 uppercase"
-                style={{
-                  fontFamily: "var(--label-font)",
-                  fontWeight: "var(--label-weight)",
-                  fontSize: "var(--label-size)",
-                  letterSpacing: "var(--label-ls)",
-                  color: "var(--accent-neon)",
-                }}
-              >
+              <h3 className="mb-4 uppercase" style={{ color: "var(--accent-neon)" }}>
                 → Моя роль
               </h3>
               <ul className="space-y-3">
@@ -341,16 +331,7 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
           {/* What I Did - structured */}
           {c.whatIDid && Object.keys(c.whatIDid).length > 0 && (
             <div className="space-y-8">
-              <h3
-                className="mb-6 uppercase"
-                style={{
-                  fontFamily: "var(--label-font)",
-                  fontWeight: "var(--label-weight)",
-                  fontSize: "var(--label-size)",
-                  letterSpacing: "var(--label-ls)",
-                  color: "var(--accent-neon)",
-                }}
-              >
+              <h3 className="mb-6 uppercase" style={{ color: "var(--accent-neon)" }}>
                 → Что сделал
               </h3>
               {c.whatIDid.gameLoop && c.whatIDid.gameLoop.length > 0 && <WorkSection title="Игровой цикл" items={c.whatIDid.gameLoop} />}
@@ -366,16 +347,7 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
           {/* Actions - fallback if no structured data */}
           {(!c.whatIDid || Object.keys(c.whatIDid).length === 0) && c.actions && c.actions.length > 0 && (
             <div>
-              <h3
-                className="mb-4 uppercase"
-                style={{
-                  fontFamily: "var(--label-font)",
-                  fontWeight: "var(--label-weight)",
-                  fontSize: "var(--label-size)",
-                  letterSpacing: "var(--label-ls)",
-                  color: "var(--accent-neon)",
-                }}
-              >
+              <h3 className="mb-4 uppercase" style={{ color: "var(--accent-neon)" }}>
                 → Что было сделано
               </h3>
               <ul className="space-y-3">
@@ -401,16 +373,7 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
           {/* Result */}
           {(c.outcome || c.facts || c.result) && (
             <div>
-              <h3
-                className="mb-4 uppercase"
-                style={{
-                  fontFamily: "var(--label-font)",
-                  fontWeight: "var(--label-weight)",
-                  fontSize: "var(--label-size)",
-                  letterSpacing: "var(--label-ls)",
-                  color: "var(--accent-neon)",
-                }}
-              >
+              <h3 className="mb-4 uppercase" style={{ color: "var(--accent-neon)" }}>
                 → Результат
               </h3>
               
@@ -463,16 +426,7 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
               {/* Final conclusion section */}
               {c.outcome && c.outcome.length > 0 && (
                 <div className="mt-8 mb-4">
-                  <h4
-                    className="mb-4"
-                    style={{
-                      fontFamily: "var(--title-font, 'Syne', sans-serif)",
-                      fontWeight: "bold",
-                      fontSize: "16px",
-                      letterSpacing: "0.05em",
-                      color: "var(--accent-neon)",
-                    }}
-                  >
+                  <h4 className="mb-4" style={{ color: "var(--accent-neon)" }}>
                     Что я вынес из этого кейса:
                   </h4>
                   <p
@@ -493,16 +447,7 @@ export function CaseModal({ c, onClose }: CaseModalProps) {
           {/* Key mechanics */}
           {c.mechanics && c.mechanics.length > 0 && (
             <div>
-              <h3
-                className="mb-4 uppercase"
-                style={{
-                  fontFamily: "var(--label-font)",
-                  fontWeight: "var(--label-weight)",
-                  fontSize: "var(--label-size)",
-                  letterSpacing: "var(--label-ls)",
-                  color: "var(--accent-neon)",
-                }}
-              >
+              <h3 className="mb-4 uppercase" style={{ color: "var(--accent-neon)" }}>
                 → Ключевые механики
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -566,16 +511,7 @@ function PassportRow({ label, value }: { label: string; value: string }) {
 function WorkSection({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
-      <h4
-        className="mb-3 uppercase"
-        style={{
-          fontFamily: "var(--label-font)",
-          fontWeight: "var(--label-weight)",
-          fontSize: "var(--label-size)",
-          letterSpacing: "var(--label-ls)",
-          color: "var(--accent-neon)",
-        }}
-      >
+      <h4 className="mb-3 uppercase" style={{ color: "var(--accent-neon)" }}>
         {title}
       </h4>
       <ul className="space-y-2">
